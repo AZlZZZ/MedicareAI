@@ -1,0 +1,15 @@
+.img-collab {
+  width: 56px;
+  height: 56px;
+  border-radius: 9.81px;
+  border-width: 1.23px;
+}
+
+
+.avatar {
+  margin-left: 0px !important;
+  position: static !important;
+  border: 1px solid #737373 o !important;
+  border: 1px solid var(--Secondary-Secondary700, #737373);
+}
+

@@ -1,0 +1,66 @@
+.timeline {
+    position: relative;
+    border-left: 2px solid #007bff;
+    margin-left: 20px;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -39px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #007bff;
+    border: 3px solid #fff;
+}
+
+.severity-high {
+    border-left: 4px solid #dc3545 !important;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+/* Bouton spécifique */
+.btn-add-diag {
+    background-color: #eef4ff;
+    color: #007bff;
+    border: 1px dashed #007bff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-add-diag:hover {
+    background-color: #007bff;
+    color: white;
+    border-style: solid;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Amélioration de la timeline */
+.timeline-date {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.prescription-box {
+    background-color: #f8fff9 !important; /* Très léger vert */
+}

@@ -1,0 +1,38 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    paths:
+      - "frontend/**"
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v3
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Go to frontend
+        run: cd frontend
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Run tests
+        run: |
+          cd frontend
+          npm run test -- --watch=false --browsers=ChromeHeadless
+
+      - name: Build production version
+        run: |
+          cd frontend
+          npm run build -- --configuration production

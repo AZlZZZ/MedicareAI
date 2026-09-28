@@ -1,0 +1,159 @@
+<div class="container-app d-flex flex-column gap-3">
+
+  <!-- Header -->
+  <div class="d-flex align-items-center justify-content-between">
+    <p class="title">{{ 'SCHEDULE.TITLE' | translate }}</p>
+
+    <!-- Patient: alert bell -->
+    <div *ngIf="isPatient" class="position-relative">
+      <button class="btn btn-light position-relative" (click)="toggleAlerts()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="#16151C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span *ngIf="unreadCount > 0" class="badge-circle">{{ unreadCount }}</span>
+      </button>
+    </div>
+  </div>
+
+  <app-loader *ngIf="loading"></app-loader>
+
+  <!-- ── DOCTOR VIEW ─────────────────────────────────────────────────────── -->
+  <ng-container *ngIf="!loading && isDoctor">
+    <div class="row g-3">
+
+      <!-- Patient list -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-header fw-600">{{ 'CLIENT.TITLE' | translate }}</div>
+          <div class="card-body p-0" style="overflow-y:auto; max-height:70vh">
+            <div *ngIf="patients.length === 0" class="text-center py-4 text-muted">
+              {{ 'TABLE.NODATA' | translate }}
+            </div>
+            <div *ngFor="let p of patients"
+              class="patient-item d-flex align-items-center gap-2 px-3 py-2 cursor-pointer"
+              [class.selected]="selectedPatient?.id === p.id"
+              (click)="selectPatient(p)">
+              <div class="avatar-sm">{{ (p.firstName || p.lastName || '?')[0].toUpperCase() }}</div>
+              <div>
+                <div class="fw-500">{{ p.firstName }} {{ p.lastName }}</div>
+                <small class="text-muted">{{ p.phoneNumber }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedules panel -->
+      <div class="col-md-8">
+        <div class="card h-100">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <span class="fw-600">
+              {{ 'SCHEDULE.SCHEDULES' | translate }}
+              <span *ngIf="selectedPatient" class="text-muted fw-400 ms-1">— {{ selectedPatient.firstName }} {{ selectedPatient.lastName }}</span>
+            </span>
+            <button *ngIf="selectedPatient" class="btn btn-primary btn-sm d-flex align-items-center gap-1" (click)="openAdd()">
+              <svg width="16" height="16" viewBox="0 0 22 22" fill="none">
+                <path d="M11 7V15M15 11H7M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ 'SCHEDULE.ADD' | translate }}
+            </button>
+          </div>
+          <div class="card-body">
+            <div *ngIf="!selectedPatient" class="text-center py-5 text-muted">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" class="mb-2 opacity-25">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#6c757d" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <p>{{ 'SCHEDULE.SELECT_PATIENT' | translate }}</p>
+            </div>
+
+            <app-loader *ngIf="loadingSchedules"></app-loader>
+
+            <div *ngIf="selectedPatient && !loadingSchedules">
+              <div *ngIf="schedules.length === 0" class="text-center py-4 text-muted">{{ 'TABLE.NODATA' | translate }}</div>
+
+              <div *ngFor="let s of schedules" class="schedule-card mb-3 p-3 rounded border">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <span class="fw-600 fs-6">{{ getMedName(s) }}</span>
+                    <span class="badge bg-light text-dark ms-2">{{ s.dose }}</span>
+                  </div>
+                  <div class="d-flex gap-1">
+                    <button class="btn btn-light btn-sm" (click)="openEdit(s)">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 21H21M13.78 5.31c0 0 0 1.63 1.64 3.27 1.63 1.63 3.27 1.63 3.27 1.63M7.32 17.99l3.43-.49c.5-.07.96-.3 1.31-.65l8.26-8.26c.9-.9.9-2.37 0-3.27l-1.63-1.63c-.9-.9-2.37-.9-3.27 0L7.16 11.94c-.35.35-.58.81-.65 1.31l-.49 3.43c-.11.76.54 1.41 1.3 1.31z" stroke="#16151C" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                    </button>
+                    <button class="btn btn-light btn-sm" (click)="deleteSchedule(s)">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 9l-.72 9.31C18.12 20.39 16.39 22 14.3 22H9.7c-2.09 0-3.82-1.61-3.98-3.69L5 9M21 7c-2.6-1.27-5.69-2-9-2s-5.4.73-8 2M10 5V4c0-1.1.9-2 2-2s2 .9 2 2v1M10 11v6M14 11v6" stroke="#16151C" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="mt-2 d-flex flex-wrap gap-2 text-muted small">
+                  <span>📅 {{ formatDate(s.startDate) }} → {{ formatDate(s.endDate) }}</span>
+                  <span>🔔 {{ s.alertBeforeMinutes }}min before</span>
+                  <span>📆 {{ formatDays(s.daysOfWeek) }}</span>
+                  <span>🕐 {{ s.timesOfDay.join(', ') }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- ── PATIENT VIEW ────────────────────────────────────────────────────── -->
+  <ng-container *ngIf="!loading && isPatient">
+
+    <!-- Alert panel -->
+    <div *ngIf="showAlerts" class="card mb-3">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <span class="fw-600">{{ 'SCHEDULE.UPCOMING_ALERTS' | translate }}</span>
+        <app-loader *ngIf="loadingAlerts" style="transform:scale(0.5)"></app-loader>
+      </div>
+      <div class="card-body p-0">
+        <div *ngIf="!loadingAlerts && alerts.length === 0" class="text-center py-4 text-muted">{{ 'TABLE.NODATA' | translate }}</div>
+        <div *ngFor="let a of alerts"
+          class="alert-item d-flex align-items-center gap-3 px-3 py-2 border-bottom cursor-pointer"
+          [class.unread]="a.status === 'UNREAD'"
+          (click)="markRead(a)">
+          <div class="flex-shrink-0">
+            <span class="badge" [class.bg-warning]="a.status === 'UNREAD'" [class.bg-light]="a.status === 'READ'" [class.text-dark]="a.status === 'READ'">
+              {{ a.status }}
+            </span>
+          </div>
+          <div class="flex-grow-1">
+            <div class="fw-500">{{ a.medicamentName }} — {{ a.dose }}</div>
+            <small class="text-muted">Take at: {{ a.takeAt | date:'dd/MM/yyyy HH:mm' }}</small>
+          </div>
+          <small class="text-muted">Alert: {{ a.alertAt | date:'HH:mm' }}</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- My schedules -->
+    <div class="card">
+      <div class="card-header fw-600">{{ 'SCHEDULE.MY_SCHEDULES' | translate }}</div>
+      <div class="card-body">
+        <div *ngIf="mySchedules.length === 0" class="text-center py-5 text-muted">{{ 'TABLE.NODATA' | translate }}</div>
+        <div *ngFor="let s of mySchedules" class="schedule-card mb-3 p-3 rounded border">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <span class="fw-600 fs-6">{{ s.medicamentName ?? ('MED #' + s.medicamentId) }}</span>
+              <span class="badge bg-light text-dark ms-2">{{ s.dose }}</span>
+            </div>
+          </div>
+          <div class="mt-2 d-flex flex-wrap gap-2 text-muted small">
+            <span>📅 {{ formatDate(s.startDate) }} → {{ formatDate(s.endDate) }}</span>
+            <span>🔔 {{ s.alertBeforeMinutes }}min before</span>
+            <span>📆 {{ formatDays(s.daysOfWeek) }}</span>
+            <span>🕐 {{ s.timesOfDay.join(', ') }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

@@ -1,0 +1,163 @@
+/* createAt styles 
+ */
+
+ .p_agent_crt{
+  
+    font-size: 7.73px;
+    font-weight: 500;
+    line-height: 10.83px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.5);
+ }
+ .span_agent_crt{
+   
+    font-size: 7.73px;
+    font-weight: 500;
+    line-height: 10.83px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+ 
+ }
+
+ /* button export  styles  */
+ .btn-export {
+   background-color:  rgba(207, 206, 206, 1);
+   color:  rgba(255, 255, 255, 1);
+
+ 
+ }
+
+  /* label fonction  style */
+.fn_label {
+   
+/* font-size: 14px;
+font-weight: 400;
+line-height: 19.6px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none; */
+color: rgba(10, 10, 11, 0.49);
+}
+
+ /* card founction styles  */
+ .founction-card {
+   /* width: 164px;
+   height: 75px; */
+   padding: 13px 10px 13px 10px;
+   gap: 0px;
+   border-radius: 12px ;
+   justify: space-between;
+   opacity: 0px;
+   background: #F6F6F6;
+   min-height: 75px;
+ }
+ .title_founction{
+   font-size: 12px;
+   font-weight: 500;
+   line-height: 16.8px;
+   text-align: left;
+   text-underline-position: from-font;
+   text-decoration-skip-ink: none;
+   color: #718EBF;
+   word-wrap: break-word;
+   overflow-wrap: break-word;
+
+ }
+ .icon_founction{
+   width: 30px;
+   height: 30px;
+
+   
+ }
+  .p_profile_input {
+   color: #718EBF;
+   font-size: 15px;
+   font-weight: 400;
+   line-height: 18.15px;
+   text-align: left;
+   text-underline-position: from-font;
+   text-decoration-skip-ink: none;
+   
+  }
+ .icon-wrapper_agent{
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   background: #1814F3;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   left: 52%;
+   top: 70px;
+   transform: translateY(0);
+ }
+ .avatar_profil_agent{
+  
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+ }
+
+ /* icon weapper  styles   */
+.icon-wrapper_agent {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #1814F3;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 53%;
+  top: 72px;
+  transform: translateY(0);
+}
+
+/* .ng-value-container { 
+  overflow: scroll !important;
+  min-height: 50px !important;
+  flex-wrap: nowrap !important;
+
+} */
+
+
+/* .ng-select .ng-select-container {
+  padding-right: 30px !important ;
+  background-color: rgba(255, 255, 255, 1) !important;
+  border-radius: 15px !important;
+  border: 1px solid rgba(223, 234, 242, 1) !important;
+
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>') no-repeat right 10px center;
+
+} */
+.ng-select .ng-arrow-wrapper{
+  display: none;
+}
+
+/* .ng-select.ng-select-multiple.ng-select-disabled > .ng-select-container .ng-value-container .ng-value {
+  background-color:  #30a3db !important;
+  border: 1px solid hsl(0, 0%, 90%);
+} */
+
+/* Supprime l'icône par défaut */
+input[date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+}
+
+
+input[date] {
+  position: relative;
+  background: url("/src/assets/icons/calendar.svg") no-repeat ;
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 35px;
+  cursor: pointer;
+}

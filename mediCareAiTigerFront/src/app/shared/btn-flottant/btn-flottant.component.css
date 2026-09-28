@@ -1,0 +1,24 @@
+
+.fab {
+  display: none !important;
+}
+
+@media   (max-width : 992px){
+.fab {
+  position: fixed;
+  bottom: 75px; /* Espace depuis le bas */
+  right: 30px;  /* Espace depuis la droite */
+  z-index: 1000;
+  font-size: 24px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      border-radius: 50% !important;
+    height: 50px;
+    width: 50px;
+}
+.fab svg path{
+    background-color : white;
+}
+}

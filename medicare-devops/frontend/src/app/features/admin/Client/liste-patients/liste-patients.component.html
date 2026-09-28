@@ -1,0 +1,75 @@
+<div class="container-app d-flex flex-column gap-3">
+  <div class="d-flex align-items-center justify-content-between">
+    <p class="title">{{ "CLIENT.TITLE" | translate }}</p>
+
+    <div class="d-flex inputs-content">
+      <app-btn-export *ngIf="isAgent" [loading]="loadingExport" (export)="export()"></app-btn-export>
+
+      <button *ngIf="isAgent"
+        type="button"
+        class="btn btn-primary order_1 ws-100 d-none-sm m-1 btn-primary justify-content-center"
+        (click)="add()"
+      >
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path
+            d="M11 7V15M15 11H7M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z"
+            stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+          />
+        </svg>
+        {{ "CLIENT.ADD" | translate }}
+      </button>
+
+      <button
+        [ngClass]="{ 'border-blue': nbFilter > 0, 'btn-filtre-select': filterCollapse }"
+        class="btn-filtre m-1 btn btn-light d-flex justify-content-center align-items-center gap-1 position-relative"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseFilters"
+        aria-expanded="false"
+        aria-controls="collapseFilters"
+        (click)="toggleCollapse()"
+      >
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none">
+          <path d="M3.5 6H10.5" stroke="#16151C" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M3.5 12H12.5" stroke="#16151C" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M19.5 12H21.5" stroke="#16151C" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M14.5 6L21.5 6" stroke="#16151C" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M13.5 18H20.5" stroke="#16151C" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M3.5 18H6.5" stroke="#16151C" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="8.5" cy="18" r="2" stroke="#16151C" stroke-width="1.5"/>
+          <circle cx="17.5" cy="12" r="2" stroke="#16151C" stroke-width="1.5"/>
+          <circle cx="12.5" cy="6" r="2" stroke="#16151C" stroke-width="1.5"/>
+        </svg>
+        <span class="d-block-sm">{{ "FILTRER" | translate }}</span>
+        @if(nbFilter>0){<span class="badge-circle">{{ nbFilter }}</span>}
+      </button>
+    </div>
+  </div>
+
+  <div class="collapse" id="collapseFilters">
+    <app-filter-template type="CLIENTS" (formValuesChanged)="chaneFilter($event)"></app-filter-template>
+  </div>
+
+  <div class="d-flex flex-column gap-3">
+    <div class="row my-2">
+      <div class="table-responsive m-2 mt-0">
+        <app-reusable-table
+          [displayedColumns]="displayedColumns"
+          [dataSource]="Clients"
+          [dataColumns]="dataColumns"
+          (delete)="delete($event)"
+          [totalPages]="totalPage"
+          [prefixe]="prefixe"
+          [numberOfDriver]="numberOfClient"
+          [loading]="loading"
+          [page]="page"
+          [pageSize]="pageSize"
+          (pagelength)="chanePageSize($event)"
+          (size)="changeSize($event)"
+          (edit)="edit($event)"
+          (details)="details($event)"
+        ></app-reusable-table>
+      </div>
+    </div>
+  </div>
+</div>

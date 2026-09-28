@@ -1,0 +1,239 @@
+.nav-tabs .nav-link {
+  color: #292d32 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  transition: none !important;
+}
+
+.nav-tabs-modal {
+  border: none !important;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs-modal .nav-link.active {
+  border: none !important;
+  color: #1814f3 !important;
+  border-bottom: 3px solid #1814f3 !important;
+  background-color: transparent !important;
+  transition: none !important;
+}
+.nav-tabs .nav-link.active svg path {
+  fill: #fff;
+  stroke: #1814f3;
+}
+.nav-tabs .nav-link.active .specific-icon path {
+  stroke: none;
+  fill: #1814f3;
+}
+.init-svg path {
+  fill: #292d32;
+}
+.nav-tabs .nav-link:hover,
+.nav-tabs-modal .nav-link:hover {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.nav-tabs-modal .nav-link {
+  /*  */
+  color: #718ebf !important;
+  /* background-color: white !important; */
+}
+
+.tab-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header {
+  height: 60px;
+  padding: 25px;
+  gap: 0px;
+  font-size: 20px;
+  /* background: rgba(240, 240, 240, 1); */
+}
+
+.modal-form {
+  background-color: white;
+  border-radius: 18px;
+  padding: 15px !important;
+  height: 100%;
+}
+
+.modal-body {
+  background-color: #fafafa;
+  /* height: 500px !important; */
+}
+.modal-body.dark-mode  {
+  background-color: #282f36 !important;
+  /* height: 500px !important; */
+}
+
+.modal-footer {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 5px !important;
+}
+
+.bg-agent {
+  background-image: url("./images/bg_agent.png");
+  height: 670px;
+}
+.bg-golden {
+  background-image: url("./images/bg_agent.png");
+  /* height:670px; */
+}
+.bg-client {
+  background-image: url("./images/bg_Client.png");
+}
+
+/* bouton annuler */
+.btn-reset {
+  font-size: 14.4px;
+  font-weight: 500;
+  line-height: 17.43px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #9f9f9f;
+}
+
+/* bouton enregistrer */
+.btn_submit {
+  /* width: 152px; */
+  min-width: 152px;
+  height: 40px;
+  border-radius: 15px;
+  background: #1814f3;
+  color: #fff;
+}
+.btn_submit:active,
+.btn_submit:hover {
+  background-color: #1900f9 !important;
+  color: white !important;
+}
+/* style ajout  des vehicules */
+.modal-card {
+  width: 269.53px;
+  height: 308.28px;
+  left: 6.03px;
+  gap: 0px;
+  border-radius: 24.11px;
+  background-color: #fafafa;
+  border: 3px solid #e3e3e3;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.modal-card .car {
+  width: 280.73px;
+  height: 179.11px;
+  gap: 0px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-card .type-car {
+  font-size: 17.22px;
+  font-weight: 500;
+  line-height: 20.84px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-card.active-type {
+  background-color: #ea7b26;
+  box-shadow: 0px 0px 10px 0px #00000066;
+  border: none;
+  width: 269.53px;
+  height: 308.28px;
+  border-radius: 24.11px;
+}
+
+.modal-card.active-type .car {
+  width: 384.92px;
+  height: 245.42px;
+  gap: 0px;
+  opacity: 0px;
+  right: 20%;
+  top: -20%;
+}
+
+.modal-card.active-type {
+  background-color: #ea7b26;
+  box-shadow: 0px 0px 10px 0px #00000066;
+  border: none;
+  width: 269.53px;
+  height: 308.28px;
+  border-radius: 24.11px;
+}
+
+.modal-card.active-driver-type .car {
+  width: 384.92px;
+  height: 245.42px;
+  gap: 0px;
+  opacity: 0px;
+  right: 20%;
+  top: -20%;
+}
+
+.modal-card.active-driver-type .type-car,
+.modal-card.active-type .type-car {
+  font-size: 27.56px;
+  font-weight: 600;
+  line-height: 33.35px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #fafafa;
+  top: -20%;
+  position: relative;
+}
+
+.w-1000 .modal-content {
+  width: 1000px !important;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+input.no-border {
+  border: none; /* Supprime la bordure */
+  outline: none; /* Supprime l'effet de focus par défaut */
+  background-color: transparent; /* Rendre le fond transparent, si nécessaire */
+  color: #5e5e5e; /* Couleur du texte (modifiable) */
+  font-size: 22.39px; /* Taille de la police (modifiable) */
+  font-weight: 400;
+  padding: 5px; /* Espacement intérieur (modifiable) */
+  border-bottom: 2px solid #4e4949; /* Ligne en bas lors du focus */
+  text-align: right;
+}
+
+.opacity-75 {
+  opacity: 75%;
+}
+
+.bord-rad-24 {
+  border-radius: 24px !important;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+.price-race {
+  font-weight: 700;
+  font-size: 25.37px;
+  line-height: 30.77px;
+  color: #737373;
+}

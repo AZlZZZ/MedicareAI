@@ -1,0 +1,16 @@
+package tn.esprit.medicareaitigerback.models.dto.request;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class AddressUpdDTO {
+    private String address;
+    private Double longitude;
+    private Double latitude;
+    private String libelle;
+}

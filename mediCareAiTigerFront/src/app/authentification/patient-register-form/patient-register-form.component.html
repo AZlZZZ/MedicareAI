@@ -1,0 +1,74 @@
+<div class="form-content" id="patientRegisterForm">
+  <h2 class="form-title">Create Account</h2>
+  <form [formGroup]="form">
+
+    <!-- First Name + Last Name -->
+    <div class="row">
+      <div class="col-6 mb-3">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="firstName" placeholder="First Name"
+            formControlName="firstName"
+            [class.error-msg]="firstName?.invalid && (firstName?.dirty || firstName?.touched)" />
+          <label for="firstName">First Name *</label>
+        </div>
+      </div>
+      <div class="col-6 mb-3">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="lastName" placeholder="Last Name"
+            formControlName="lastName"
+            [class.error-msg]="lastName?.invalid && (lastName?.dirty || lastName?.touched)" />
+          <label for="lastName">Last Name *</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="patientEmail" placeholder="email@patient.com"
+        formControlName="username"
+        [class.error-msg]="username?.invalid && (username?.dirty || username?.touched)" />
+      <label for="patientEmail">Email *</label>
+    </div>
+
+    <!-- Password -->
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="patientPassword" placeholder="Password"
+        formControlName="password"
+        [class.error-msg]="password?.invalid && (password?.dirty || password?.touched)" />
+      <label for="patientPassword">Password *</label>
+    </div>
+
+    <!-- Phone -->
+    <div class="form-floating mb-3">
+      <input type="tel" class="form-control" id="phoneNumber" placeholder="+21620600200"
+        formControlName="phoneNumber" />
+      <label for="phoneNumber">Phone Number</label>
+    </div>
+
+    <!-- Gender + Birth Date -->
+    <div class="row">
+      <div class="col-6 mb-3">
+        <div class="form-floating">
+          <select class="form-select" id="gender" formControlName="gender">
+            <option value="">-- Select --</option>
+            <option value="H">Male</option>
+            <option value="F">Female</option>
+          </select>
+          <label for="gender">Gender</label>
+        </div>
+      </div>
+      <div class="col-6 mb-3">
+        <div class="form-floating">
+          <input type="date" class="form-control" id="birthDate" placeholder="Birth Date"
+            formControlName="birthDate"
+            [max]="today" />
+          <label for="birthDate">Date of Birth</label>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="save()" class="btn-submit w-100 ws-100">
+      Create Account
+    </button>
+  </form>
+</div>

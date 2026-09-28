@@ -1,0 +1,45 @@
+{  "CLIENT": {
+    "TITLE": "Gestion des clients",
+    "TOTALCLIENTS": "Total des clients",
+    "ONLINE": "Clients en ligne",
+    "WORKING": "Clients en route",
+    "RECLAMATION": "Réclamation"
+  },
+  "MEDICAMENT": {
+    "TITLE": "إدارة الأدوية",
+    "ADD": "إضافة دواء",
+    "EDIT": "تعديل الدواء",
+    "NAME": "الاسم",
+    "NAME_PLACEHOLDER": "مثال: باراسيتامول",
+    "DESCRIPTION": "الوصف",
+    "DESC_PLACEHOLDER": "وصف اختياري...",
+    "SEARCH": "البحث عن دواء...",
+    "NO_DESC": "لا يوجد وصف"
+  },
+  "SCHEDULE": {
+    "TITLE": "جداول الأدوية",
+    "ADD": "إضافة جدول",
+    "EDIT": "تعديل الجدول",
+    "SCHEDULES": "الجداول",
+    "MY_SCHEDULES": "جداول أدويتي",
+    "SELECT_PATIENT": "اختر مريضاً لعرض جداوله أو إدارتها",
+    "DOSE": "الجرعة",
+    "START_DATE": "تاريخ البداية",
+    "END_DATE": "تاريخ النهاية",
+    "OPTIONAL": "اختياري",
+    "ALERT_BEFORE": "تنبيه قبل",
+    "DAYS": "أيام الأسبوع",
+    "TIMES": "أوقات الجرعة",
+    "ADD_TIME": "إضافة وقت",
+    "UPCOMING_ALERTS": "التنبيهات القادمة"
+  },
+  "VALIDATION": {
+    "REQUIRED": "هذا الحقل مطلوب.",
+    "MAX_120": "الحد الأقصى 120 حرفاً.",
+    "MAX_500": "الحد الأقصى 500 حرف."
+  },
+  "ACTION": {
+    "EDIT": "تعديل",
+    "DELETE": "حذف"
+  }
+}

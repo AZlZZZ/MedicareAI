@@ -1,0 +1,98 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{ (schedule ? 'SCHEDULE.EDIT' : 'SCHEDULE.ADD') | translate }}</h5>
+  <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
+</div>
+
+<div class="modal-body">
+
+  <!-- Medicament -->
+  <div class="mb-3">
+    <label class="form-label">{{ 'MEDICAMENT.NAME' | translate }} <span class="text-danger">*</span></label>
+    <select class="form-select" [(ngModel)]="form.medicamentId"
+      [class.is-invalid]="!form.medicamentId && submitted">
+      <option [ngValue]="null" disabled>-- select --</option>
+      <option *ngFor="let m of medicaments" [ngValue]="m.id">{{ m.name }}</option>
+    </select>
+    <div class="invalid-feedback">Please select a medicament.</div>
+  </div>
+
+  <!-- Dose -->
+  <div class="mb-3">
+    <label class="form-label">{{ 'SCHEDULE.DOSE' | translate }} <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" [(ngModel)]="form.dose" maxlength="200"
+      placeholder="e.g. 500mg"
+      [class.is-invalid]="!form.dose.trim() && submitted" />
+    <div class="invalid-feedback">Dose is required (max 200 chars).</div>
+  </div>
+
+  <!-- Dates -->
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label">{{ 'SCHEDULE.START_DATE' | translate }} <span class="text-danger">*</span></label>
+      <input type="date" class="form-control" [(ngModel)]="form.startDate"
+        [min]="!schedule ? today : null"
+        [class.is-invalid]="startDateError && submitted" />
+      <div class="invalid-feedback">
+        <span *ngIf="startDateError === 'required'">Required.</span>
+        <span *ngIf="startDateError === 'past'">Must be today or later.</span>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">{{ 'SCHEDULE.END_DATE' | translate }} <span class="text-danger">*</span></label>
+      <input type="date" class="form-control" [(ngModel)]="form.endDate"
+        [min]="endDateMin"
+        [class.is-invalid]="endDateError && submitted" />
+      <div class="invalid-feedback">
+        <span *ngIf="endDateError === 'required'">Required.</span>
+        <span *ngIf="endDateError === 'before_start'">Must be after start date.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alert before -->
+  <div class="mb-3">
+    <label class="form-label">{{ 'SCHEDULE.ALERT_BEFORE' | translate }} (min) <span class="text-danger">*</span></label>
+    <input type="number" class="form-control" [(ngModel)]="form.alertBeforeMinutes" min="0" max="1440"
+      [class.is-invalid]="form.alertBeforeMinutes < 0 && submitted" />
+    <div class="invalid-feedback">Must be 0 or more.</div>
+    <small class="text-muted">0 = alert at exact time, max 1440 (24h)</small>
+  </div>
+
+  <!-- Days of week -->
+  <div class="mb-3">
+    <label class="form-label d-block">{{ 'SCHEDULE.DAYS' | translate }} <span class="text-danger">*</span></label>
+    <div class="d-flex flex-wrap gap-2">
+      <button *ngFor="let d of days" type="button" class="btn btn-sm"
+        [class.btn-primary]="form.daysOfWeek.includes(d)"
+        [class.btn-outline-secondary]="!form.daysOfWeek.includes(d)"
+        (click)="toggleDay(d)">
+        {{ d.slice(0,3) }}
+      </button>
+    </div>
+    <div *ngIf="form.daysOfWeek.length === 0 && submitted" class="text-danger small mt-1">
+      Select at least one day.
+    </div>
+  </div>
+
+  <!-- Times of day -->
+  <div class="mb-3">
+    <label class="form-label">{{ 'SCHEDULE.TIMES' | translate }} <span class="text-danger">*</span></label>
+    <div *ngFor="let t of form.timesOfDay; let i = index" class="d-flex align-items-center gap-2 mb-2">
+      <input type="time" class="form-control" [(ngModel)]="form.timesOfDay[i]" />
+      <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeTime(i)"
+        [disabled]="form.timesOfDay.length === 1">✕</button>
+    </div>
+    <button type="button" class="btn btn-outline-secondary btn-sm" (click)="addTime()">
+      + {{ 'SCHEDULE.ADD_TIME' | translate }}
+    </button>
+  </div>
+
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-light" (click)="modal.dismiss()">{{ 'CANCEL' | translate }}</button>
+  <button type="button" class="btn btn-primary" (click)="save()" [disabled]="loading">
+    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+    {{ 'SAVE' | translate }}
+  </button>
+</div>

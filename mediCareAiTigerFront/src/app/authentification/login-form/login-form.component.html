@@ -1,0 +1,61 @@
+<div class="form-content" id="loginForm">
+  <h2 class="form-title">Connexion</h2>
+  <p class="form-subtitle">Bon retour parmi nous !</p>
+
+  <form [formGroup]="form">
+
+    <!-- Role selector -->
+    <div class="mb-3">
+      <label class="form-label">Je suis</label>
+      <div class="d-flex gap-2">
+        <button
+          *ngFor="let r of roles"
+          type="button"
+          class="btn flex-fill"
+          [class.btn-primary]="f['role'].value === r.value"
+          [class.btn-outline-secondary]="f['role'].value !== r.value"
+          (click)="f['role'].setValue(r.value)"
+        >
+          {{ r.label }}
+        </button>
+      </div>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Email ou Téléphone"
+        formControlName="username"
+        [class.is-invalid]="f['username'].invalid && f['username'].touched"
+      />
+      <label>Email ou Numéro de Téléphone</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Mot de passe"
+        formControlName="password"
+        [class.is-invalid]="f['password'].invalid && f['password'].touched"
+      />
+      <label>Mot de passe</label>
+    </div>
+
+    <p class="text-end mb-3">
+      <a class="text-link" [routerLink]="['/auth/forgot/password']">Mot de passe oublié ?</a>
+    </p>
+
+    <button type="submit" (click)="onSubmit()" class="btn-submit w-100" [disabled]="loading">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+      Se Connecter
+    </button>
+
+    <p class="mt-3 text-center">
+      Pas encore de compte ?
+      <a [routerLink]="['/auth/patient/register']">Créer un compte patient</a>
+    </p>
+
+  </form>
+</div>

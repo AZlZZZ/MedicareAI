@@ -1,0 +1,19 @@
+<div class="container1">
+  <div class="navigation" [class.active]="isMenuOpen">
+    <ul>
+      <li>  </li>
+      @for (item of menuBlocks; track $index) {
+      <li>
+        <a [routerLink]="item.link">
+          <span class="icon">
+            <img width="30px" height="30px" [src]="item.icon" alt="" />
+          </span>
+          <span class="title" [class.active]="isMenuOpen">{{
+            item.label
+          }}</span>
+        </a>
+      </li>
+      }
+    </ul>
+  </div>
+</div>

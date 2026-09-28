@@ -1,0 +1,141 @@
+<div class="topbar">
+  <div class="toggle" (click)="toggleMenu()">
+    <svg width="40" height="40" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.03493 2.22927H0.856397C0.738442 2.22927 0.640625 2.13146 0.640625 2.0135C0.640625 1.89555 0.738442 1.79773 0.856397 1.79773H6.03493C6.15289 1.79773 6.2507 1.89555 6.2507 2.0135C6.2507 2.13146 6.15289 2.22927 6.03493 2.22927Z" fill="#292D32"/>
+<path d="M5.17594 3.66775H1.72358C1.60563 3.66775 1.50781 3.56993 1.50781 3.45198C1.50781 3.33402 1.60563 3.23621 1.72358 3.23621H5.17594C5.2939 3.23621 5.39171 3.33402 5.39171 3.45198C5.39171 3.56993 5.2939 3.66775 5.17594 3.66775Z" fill="#292D32"/>
+<path d="M4.02671 5.10623H2.87593C2.75797 5.10623 2.66016 5.00841 2.66016 4.89045C2.66016 4.7725 2.75797 4.67468 2.87593 4.67468H4.02671C4.14467 4.67468 4.24249 4.7725 4.24249 4.89045C4.24249 5.00841 4.14467 5.10623 4.02671 5.10623Z" fill="#292D32"/>
+</svg>
+
+  </div>
+  <!-- Input recherche Génerale  -->
+<app-input-general-search></app-input-general-search>
+  <!-- <div class="search-bar p-2 d-flex align-items-center input-container-search " >
+     <svg
+        width="25"
+        height="26"
+        viewBox="0 0 25 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.4734 22.1133C5.86922 22.1133 1.31714 17.5612 1.31714 11.957C1.31714 6.35286 5.86922 1.80078 11.4734 1.80078C17.0776 1.80078 21.6296 6.35286 21.6296 11.957C21.6296 17.5612 17.0776 22.1133 11.4734 22.1133ZM11.4734 3.36328C6.7338 3.36328 2.87964 7.21745 2.87964 11.957C2.87964 16.6966 6.7338 20.5508 11.4734 20.5508C16.213 20.5508 20.0671 16.6966 20.0671 11.957C20.0671 7.21745 16.213 3.36328 11.4734 3.36328Z"
+          fill="#0A2782"
+        />
+        <path
+          d="M21.0151 24.2376C20.9318 24.2376 20.8484 24.2272 20.7755 24.2168C20.2859 24.1543 19.4005 23.821 18.9005 22.3314C18.6401 21.5501 18.7339 20.7689 19.1609 20.1751C19.588 19.5814 20.3068 19.248 21.1297 19.248C22.1922 19.248 23.0255 19.6543 23.4005 20.373C23.7755 21.0918 23.6714 22.0085 23.0776 22.8939C22.338 24.0085 21.5359 24.2376 21.0151 24.2376ZM20.3901 21.8418C20.5672 22.3835 20.8172 22.6543 20.9839 22.6751C21.1505 22.696 21.463 22.498 21.7859 22.0293C22.088 21.5814 22.1089 21.2585 22.0359 21.1126C21.963 20.9668 21.6714 20.8105 21.1297 20.8105C20.8068 20.8105 20.5672 20.9147 20.4318 21.0918C20.3068 21.2689 20.2859 21.5397 20.3901 21.8418Z"
+          fill="#0A2782"
+        />
+      </svg>
+        <div class="align-items-center d-flex  " style=" transition: all 0.3s ease;">
+                        <input class=" mr-sm-2 search-input-s" type="search" [placeholder]="typeSearch" popupClass="content-rlt"
+                            aria-label="Search" [ngbTypeahead]="search" #instance="ngbTypeahead" [resultTemplate]="rt"
+                            [inputFormatter]="formatterUser" (selectItem)="onSelectItem($event)">
+                        <select class="col" (change)="onChange($event)">
+                            @for(item of searchTypes ; track item){
+                            <option [value]="item.value">{{item.item |translate}}</option>
+                            }
+                        </select>
+                    </div>
+    
+  </div> -->
+   <!-- <ng-template #rt let-result="result" let-term="term">
+            <div class="custom-result row w-100">
+                <span class="client-id col-3"><b>{{prefixe}} {{ result.id }}</b> </span>
+                <span class="client-id col"> {{ result.firstName }} {{ result.lastName }}</span>
+            </div>
+        </ng-template> -->
+
+  <div class="d-flex w-32">
+    <div class="d-flex flex-0-auto align-items-center w-100">
+      <div class="notif-bar" (click)="toggleTheme()">
+        @if(theme === 'dark'){
+        <label for="" class="theme-control-toggle-label">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16px"
+            height="16px"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#e5780b"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-moon icon"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </label>
+        } @if(theme === 'light'){
+        <label class="theme-control-toggle-label" for="">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16px"
+            height="16px"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#e5780b"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-sun icon"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </label>
+        }
+      </div>
+<div class="profile-section" (click)="toggleProfileMenu()">
+  <img class="img" src="assets/images/F.png" alt="Avatar" />
+</div>
+
+<!-- DROPDOWN MENU -->
+ @if(profileMenuOpen){
+<div class="profile-dropdown" >
+     <div class="dropdown-header">
+      <!-- <img class="img"  src="assets/images/F.png"  alt="avatar" /> -->
+      <div class="header-info">
+        <p>{{ nom}} 
+          {{ prenom }}</p>
+        <p>{{ role }}</p>
+        <!-- <p> +216 998282787 </p> -->
+      </div>
+    </div>
+  <div class="item"  routerLink="/profile" >Profile</div>
+  <div class="item" routerLink="/"  >Dashboard</div>
+  <div class="item"  routerLink="/permissions" >Settings</div>
+  <!-- <div class="item" routerLink="/help">Help Center</div> -->
+  <hr />
+  <div class="item logout" (click)="logout()"> <svg
+            width="26"
+            height="25"
+            viewBox="0 0 26 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.8876 23.1986H15.7522C11.1272 23.1986 8.89799 21.3756 8.51257 17.2923C8.4709 16.8652 8.7834 16.4798 9.2209 16.4381C9.63757 16.3965 10.0334 16.7194 10.0751 17.1465C10.3772 20.4173 11.9188 21.6361 15.7626 21.6361H15.898C20.1376 21.6361 21.6376 20.1361 21.6376 15.8965V9.10482C21.6376 4.86523 20.1376 3.36523 15.898 3.36523H15.7626C11.898 3.36523 10.3563 4.60482 10.0751 7.93815C10.023 8.36523 9.6584 8.68815 9.2209 8.64648C8.7834 8.61523 8.4709 8.22982 8.50215 7.80273C8.85632 3.6569 11.0959 1.80273 15.7522 1.80273H15.8876C21.0022 1.80273 23.1897 3.99023 23.1897 9.10482V15.8965C23.1897 21.0111 21.0022 23.1986 15.8876 23.1986Z"
+              fill="#FD5454"
+            />
+            <path
+              d="M15.6393 13.2832H3.78516C3.35807 13.2832 3.00391 12.929 3.00391 12.502C3.00391 12.0749 3.35807 11.7207 3.78516 11.7207H15.6393C16.0664 11.7207 16.4206 12.0749 16.4206 12.502C16.4206 12.929 16.0664 13.2832 15.6393 13.2832Z"
+              fill="#FD5454"
+            />
+            <path
+              d="M6.11589 16.7734C5.91797 16.7734 5.72005 16.7005 5.5638 16.5443L2.07422 13.0547C1.77214 12.7526 1.77214 12.2526 2.07422 11.9505L5.5638 8.46094C5.86589 8.15885 6.36589 8.15885 6.66797 8.46094C6.97005 8.76302 6.97005 9.26302 6.66797 9.5651L3.73047 12.5026L6.66797 15.4401C6.97005 15.7422 6.97005 16.2422 6.66797 16.5443C6.52214 16.7005 6.3138 16.7734 6.11589 16.7734Z"
+              fill="#FD5454"
+            />
+          </svg>
+           Logout</div>
+</div>}
+
+    </div>
+  </div>
+</div>

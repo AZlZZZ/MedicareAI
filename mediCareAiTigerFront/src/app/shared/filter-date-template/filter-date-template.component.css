@@ -1,0 +1,187 @@
+/* buttons Filter template*/ 
+ /*commentaire test verification change name classe  */
+.btn-date-filter.active {
+  background: rgba(53, 99, 240, 0.1) ;
+  color: var(--color-principal);
+}
+.btn-date-filter {
+  gap: 4px;
+  border-radius: 10px;
+  opacity: 0px;
+  color: rgba(143, 143, 143, 1);
+  background-color: white; 
+  border: 1px solid  rgba(143, 143, 143, 1);
+  height: 30px;
+}
+.button-filtre {
+  height: 38px !important;
+}
+
+ngb-datepicker{
+  border: none !important;
+}
+
+.card-button-filter {
+  gap: 5.36px;
+  opacity: 0px;
+}
+/* Conteneur principal */
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  /* gap: 2rem; */
+  align-items: center;
+}
+
+/* Section des années */
+.years-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+.year-selector{
+  width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#year{
+  width: 90%;
+  
+}
+/* Bouton pour une année */
+.year-button {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.year-button:hover {
+  background-color: #e3f2fd;
+}
+
+.year-button.selected {
+  background-color: var(--color-principal);
+  color: white;
+  border-color: #0056b3;
+}
+
+.mois-container {
+  display: flex;
+}
+
+.mois-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mois-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mois-button:hover {
+  background-color: #f3c4a1;
+  border-radius: 6.33px;
+}
+
+.mois-button.selected {
+  background-color: #EA7B26;
+  color: white;
+  border-color: #EA7B26;
+  border-radius: 6.33px;
+}
+
+
+.selected {
+  background-color: #EA7B26;
+  color: white;
+  border-color: #EA7B26;
+  border-radius: 6.33px;
+}
+
+.custom-day {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.selected-week {
+  margin-top: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.selected-week li {
+  margin: 5px 0;
+}
+
+/* Personnaliser le fond */
+.custom-datepicker {
+  display: block;
+}
+.ngb-dp-months{
+  display: flex;
+  justify-content: center !important;
+}
+/* Personnaliser les jours */
+.custom-datepicker .ngb-dp-day {
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Personnaliser les jours sélectionnés */
+.custom-datepicker .ngb-dp-day.selected {
+  background-color: rgba(234, 123, 38, 1);
+  color: #fff;
+  width: 23.45px;
+  height: 24.79px;
+  position: relative;
+  top: -3.35px;
+  left: -2.68px;
+  border-radius: 6.7px;
+  opacity: 1; /* Set opacity to 1 for visibility */
+}
+
+/* Hover effect for days */
+.custom-datepicker .ngb-dp-day:hover {
+  background: rgba(234, 123, 38, 0.8);
+  border-radius: 50%;
+  color: #fff;
+}
+.custom-datepicker .ngb-dp-day::selection {
+  background: rgba(234, 123, 38, 0.8);
+  border-radius: 50%;
+  color: #fff;
+}
+
+/* Cacher le nom des jours (lundi, mardi, etc.) */
+.custom-datepicker .ngb-dp-weekdays {
+  display: none;
+}
+
+/* Personnaliser les boutons de navigation */
+.custom-datepicker .ngb-dp-navigation-chevron {
+  color: #007bff;
+}
+
+.bg-primary{
+  background-color: #EA7B26 !important;
+  border-radius: 6.7px !important;
+}
+.ngb-dp-header , .ngb-dp-month-name{
+  background-color: white !important;
+}

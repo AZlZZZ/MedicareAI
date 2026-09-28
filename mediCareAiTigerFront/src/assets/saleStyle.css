@@ -1,0 +1,323 @@
+.content {
+    min-height: 250px;
+    padding: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.box-header {
+    color: #444;
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+
+.box-header.with-border {
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.box.box-primary {
+    border-top-color: #3c8dbc;
+}
+
+.box-header .box-title {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1;
+}
+.box.box-list{
+    margin:20px
+    
+}
+.box-header>.box-tools {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    display: flex; /* Active flexbox */
+    gap: 20px; 
+}
+
+.text-primary {
+    color: #337ab7;
+}
+
+h3{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.box-body {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+.input-group .input-group-addon {
+    border-radius: 0;
+    border-color: #d2d6de;
+    background-color: #fff;
+}
+
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-right: 10px;
+}
+
+.form-horizontal .control-label {
+	padding-top: 7px;
+	margin-bottom: 0;
+	text-align: right;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.form-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+/* .form-group {
+	
+    margin-bottom: 15px;
+} */
+
+.form-horizontal .control-label {
+	padding-top: 7px;
+	margin-bottom: 0;
+	text-align: right;
+}
+
+/* .form-group {
+    display: flex;
+    align-items: center;
+} */
+
+/* .form-group label {
+    margin-right: 10px; /* Espace entre le label et l'input 
+} */
+
+.form-control {
+    flex: 1; /* Permet à l'input de prendre l'espace restant */
+}
+.bg-gray {
+    color: #000;
+    background-color: #d2d6de !important;
+}
+.label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.bg-maroon {
+    background-color: #d81b60 !important;
+    color:#fff;
+}
+
+.bg-purple {
+    background-color: #605ca8 !important;
+    color:#fff;
+}
+.box.box-info {
+    border-top-color: #00c0ef;
+}
+
+.item_image {
+    min-width: 70px;
+    min-height: 70px;
+    max-width: 70px;
+    max-height: 70px;
+}
+.search_item {
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #000000;
+    text-align: center;
+    text-overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.item_box {
+    border-top: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    max-height: 150px;
+    min-height: 150px;
+    cursor: pointer;
+    background-color:#edf3f7 /* Ombre légère */
+}
+.label-danger {
+    background-color: #d9534f;
+    color: #fff !important;
+    border-radius: .25em;
+    font-weight: 300;
+}
+.auto-complite{
+    flex: 1;
+    margin-left: 15px;
+    outline: none;
+    opacity: 1; /* Réglez sur 0 si l'input doit être masqué */
+    padding-left: 5px; /* Ajuste l'espacement avec l'icône */
+    border-radius: inherit; /* Applique le même rayon que le conteneur */
+}
+ /* style details sales 
+  */
+  .invoice {
+    position: relative;
+    background: #fff;
+    border: 1px solid #f4f4f4;
+    padding: 20px;
+    margin: 10px 25px;
+}
+
+.page-header {
+    margin: 10px 0 20px 0;
+    font-size: 22px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 9px;
+}
+
+ h2 small {
+    font-size: 65%;
+}
+
+ h2{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.page-header>small {
+	color:#666;
+	display:block;
+	margin-top:5px;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.text-bold{
+    font-weight: 600;
+}
+
+.bg-gray {
+    color: #000;
+    background-color: #d2d6de !important;
+}
+.btn-pdf {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.btn-pdf:hover {
+    background-color: white; /* Une teinte plus foncée pour le hover */
+    border-color: #204d74;    /* Ajuster la bordure pour correspondre */
+    color: #285e8e;          /* Optionnel : changer la couleur du texte */
+}
+.print {
+    color: white;
+    background: black;
+    border-color: black;
+}
+.print:hover{
+    color: black;
+    background-color: white;
+    border-color: black;
+}
+.btn-update{
+    background-color: #198754;
+    color:white;
+}
+.btn-update:hover{
+    background-color: white;
+    border-color:#198754 ;
+    color:#198754;
+}
+.btn-PDF{
+    background-color: #dc3545;
+    color:white;
+
+}
+.btn-PDF:hover{
+    background-color: white;
+    border-color:#dc3545 ;
+    color:#dc3545;
+    
+}
+.row-btn {
+    display: flex; /* Active Flexbox */
+    justify-content: space-between !important; /* Espacement entre les éléments */
+    flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
+    gap: 10px; /* Ajoute un espacement constant entre les boutons */
+}
+.row-btn a {
+    margin-right: 8px; /* Espacement entre chaque bouton */
+}
+
+.row-btn a:last-child {
+    margin-right: 0; /* Pas de marge sur le dernier bouton */
+}
+
+.control-label {
+    margin: 0; /* Supprime les marges inutiles */
+}
+
+.custom-table {
+    width: 100%; /* Fixe la largeur du tableau */
+    border-collapse: collapse; /* Fusionne les bordures */
+    margin-top: 20px; /* Ajoute un espace au-dessus */
+    justify-content: end;
+}
+.custom-table th, .custom-table td {
+    text-align: right;
+}
+
+
+
+  .hidden-for-display {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .even-row {
+    background-color: #f9f9f9;  /* Couleur claire pour les rangées paires */
+  }
+  
+  .odd-row {
+    background-color: #ffffff;  /* Couleur blanche pour les rangées impaires */
+  }

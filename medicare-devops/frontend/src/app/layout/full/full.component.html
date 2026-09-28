@@ -1,0 +1,40 @@
+ <app-side-bar  [isMenuOpen]="isMenuOpen"></app-side-bar>
+
+<div class="main" [class.active]="isMenuOpen" >
+    <app-navbar (isMenuOpenChange)="isMenuOpen = $event" ></app-navbar>
+  <router-outlet />
+<!-- Open Chat Button btn btn-primary  -->
+ <button class="btn-chat border-0 position-fixed m-4 d-flex align-items-center gap-2" (click)="toggleChat()">
+ <!-- @if(!isChatOpen){ -->
+  <img class="rotate-img"  height="30px" width="30px" src="icons/robot.png" alt="" srcset="">
+  <!-- <span class="status-dot bg-success rounded-circle d-inline-block" style="width:10px; height:10px;"></span>
+
+ Chat demo -->
+<!-- }@else {
+  <svg class="svg-inline--fa fa-chevron-down fs-7 text-primary" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" role="img" xmlns="http://www.w3.org/2000/svg" 
+  viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>
+
+ } -->
+</button> 
+
+<!-- Chat Modal (conditionally rendered) -->
+ @if(isChatOpen){<div class="chat-modal shadow-lg p-3 rounded bg-white animate__animated animate__fadeInUp">
+  <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+    <h5 class="mb-0">Demo Widget</h5>
+    <button class="btn-close" (click)="toggleChat()"></button>
+  </div>
+
+  <div class="chat-body mb-3">
+    <p>Ask us anything – we’ll get back to you here or by email within 24 hours.</p>
+    <button class="btn btn-outline-primary w-100 mb-2">I need help with something</button>
+    <button class="btn btn-outline-primary w-100 mb-2">I can’t reorder a product I previously ordered</button>
+    <button class="btn btn-outline-primary w-100 mb-2">How do I place an order?</button>
+    <button class="btn btn-outline-primary w-100">My payment method not working</button>
+  </div>
+
+  <div class="chat-footer d-flex align-items-center gap-2">
+    <input type="text" class="form-control" placeholder="Write message..." />
+    <button class="btn btn-primary">Send</button>
+  </div>
+</div> }
+</div>

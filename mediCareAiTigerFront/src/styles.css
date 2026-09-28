@@ -1,0 +1,413 @@
+
+/* Add application styles & imports to this file! */
+@import "@ng-select/ng-select/themes/default.theme.css";
+/* You can add global styles to this file, and also import other style files */
+@import 'quill/dist/quill.snow.css'; 
+/* Fix Angular missing CSS */
+
+:root {
+  --color-principal: #0a4db8;
+  /* --color-principal: #081a4f; */
+  /* --color-principal: #00A082; */
+  /* --color-principal: #3563f0; */
+  --color-secondaire: #248EDF;
+  --color-warn: #e74c3c;
+  --color-danger: #e4626f;
+  --primary-500: #fd5a13;
+  --theme-control-toggle-bg: rgba(255, 204, 133, 0.24);
+  --body-bg-color: #FAFAFA;
+  --color-primary-text: #333;
+  --white :#ffffff;
+   --card-cap-bg:#ffffff;
+   --card-border-color:#ffffff;
+ --border-input :  rgb(36 34 48 / 20%);
+}
+.dark-mode {
+  --color-principal: #081a4f;
+  /* --color-principal: #00A082; */
+  --color-secondaire: #248EDF;
+  --color-warn: #e74c3c;
+  --color-danger: #e4626f;
+  --primary-500: #fd5a13;
+  --theme-control-toggle-bg:  rgba( 133, 169, 255, 0.24 );
+    --body-bg-color: #0f111a;
+      --color-primary-text: white;
+       --white :#0f111a;
+   --card-cap-bg: transparent;
+   --card-border-color: rgba(55, 62, 83, 0.78);
+    --border-input :  #ccc ;
+}
+/* .ng-select.custom {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #eeeeee;
+  border-radius: 26px;
+  height: auto;
+  min-height: 40px;
+  width: 632px;
+  max-width: 100%;
+  background-color: #ffffff;
+  color: #888888;
+  outline: none;
+  font-weight: 300;
+
+  padding: 0px 0px;
+  text-align: left;
+}
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+  background-color: #30a3db;
+  border-radius: 26px;
+  padding: 5px 15px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon {
+  color: #ffffff;
+  padding-right: 5px;
+  padding-left: 5px;
+} */
+
+.ng-select .ng-arrow-wrapper .ng-arrow {
+  display: none;
+}
+
+.ng-select span.ng-arrow-wrapper:before {
+  content: "\f0ab";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+}
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0; 
+}
+
+body {
+
+  height: 100vh;
+    position: relative;
+    color: var(--color-primary-text); 
+    /* color: #333;  */
+    overflow-x: hidden; /* Empêche le défilement de la page */
+    /* background-color: #FAFAFA; */
+    background-color: var(--body-bg-color);
+    /* color: #ffffff; */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Fixe l'image de fond */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Largeur de l'écran */
+    height: 100vh; /* Hauteur de l'écran */
+    /* background-image: url('assets/images/background.png') !important; */
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    opacity: 0.2; /* Ajustez l'opacité selon vos besoins */
+    z-index: -1; /* L'image de fond derrière le contenu */
+}
+.floatright{
+    float: right;
+}
+
+
+.input-dest-arriv{
+  width: 215px;
+height: 26px;
+left: 40px;
+gap: 0px;
+opacity: 0px;
+
+}
+
+
+
+/* Supprimer les flèches pour Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Supprimer les flèches pour Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+.blue-color{
+  color :#3563F0 !important;
+}
+
+.w-153{
+  width: 153px !important;
+}
+
+.w-90{
+  width: 90%;
+}
+.error-msg{
+    border: 1px solid var(--color-danger) !important;
+  /* border: 1px solid #8b686800;
+  box-shadow: 0 0 0 .25rem rgba(253, 20, 4, 0.25); */
+}
+
+.ngx-display-none {
+  display: block !important;
+}
+
+.ng-display-block {
+  display: none !important;
+}
+
+/* @media (min-width: 769px) { */
+@media (max-width: 991px) and (min-width: 769px) {
+  .ws-25 {
+    width: 25% !important;
+  }
+
+  .ws-48 {
+    width: 48% !important;
+  }
+
+  .flex-wrap-s {
+    flex-wrap: wrap !important;
+    gap: 5px;
+  }
+
+  .ws-50 {
+    width: 50% !important;
+  }
+
+  .ws-100 {
+    width: 100% !important;
+  }
+   .mw-50 {
+    max-width: 50% !important;
+  }
+  .ws-80 {
+    width: 80% !important;
+  }
+
+  .h-300 {
+    height: 300px !important;
+  }
+
+  .ws-400 {
+    width: 50vw;
+  }
+
+  :root {
+    --font-size-xs: 8px;
+    --font-size-sm: 12px;
+    --font-size-base: 14px;
+    --font-size-16: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 10.1px;
+    --font-size-24: 18px;
+    --font-size-34: 17.18px;
+    --font-size-xxxl: 20px;
+    --font-size-26: 24px;
+    --font-size-extra-large: 140.34px;
+    --font-size-36: 34px;
+
+
+    --line-heigth-sm: 12px;
+    --line-heigth-base: 16px;
+    --line-heigth-lg: 18px;
+    --line-heigth-xl: 20px;
+    --line-heigth-24: 12.12px;
+    --line-heigth-34: 34px;
+    --line-heigth-xxxl: 20.21px;
+  }
+
+  .d-flex-s {
+    display: flex !important;
+  }
+.ngx-display-none {
+    display: none !important;
+  }
+
+  .ng-display-block {
+    display: block !important;
+  }
+
+  .nav-tabs-s {
+    flex-wrap: nowrap;
+    overflow: scroll;
+  }
+
+  .modal-form-promo-cible {
+    max-height: 40vh;
+    overflow: auto;
+  }
+  .modal-form-s {
+    max-height: 45vh;
+  }
+
+  .nav-tabs .nav-link.active {
+    .nav-tab-name {
+      display: block !important;
+    }
+  }
+
+  .nav-tab-name {
+    display: none !important;
+  }
+}
+
+.d-block-lg {
+  display: none;
+}
+
+.d-block-sm {
+  display: block;
+}
+
+.modal-form-s {
+  overflow: auto;
+}
+
+@media (max-width: 768px) {
+  ngb-typeahead-window {
+    width: max-content !important ;
+  }
+
+  .ws-25 {
+    width: 25% !important;
+  }
+
+  .d-block-sm {
+    display: none;
+  }
+
+  .d-block-lg {
+    display: block;
+  }
+
+  .d-none-sm {
+    display: none;
+  }
+
+  .ws-48 {
+    width: 48% !important;
+  }
+
+  .flex-wrap-s {
+    flex-wrap: wrap !important;
+    gap: 5px;
+  }
+
+  .ws-50 {
+    width: 50% !important;
+  }
+ .mw-50 {
+    max-width: 50% !important;
+  }
+  .ws-100 {
+    width: 100% !important;
+  }
+  .ws-80 {
+    width: 80% !important;
+  }
+
+
+  .h-300 {
+    height: 300px !important;
+  }
+
+  .ws-400 {
+    width: 400px !important;
+  }
+  .w-65{
+    width:  65%;
+  }
+  .w-33{
+    width: 33%;
+  }
+
+  :root {
+    --font-size-xs: 8px;
+    --font-size-sm: 12px;
+    --font-size-base: 14px;
+    --font-size-16: 14px;
+    --font-size-14: 12px;
+    --font-size-13: 11px;
+    --font-size-lg: 18px;
+    --font-size-xl: 10.1px;
+    --font-size-24: 18px;
+    --font-size-23: 20px;
+    --font-size-34: 17.18px;
+    --font-size-36: 30px;
+
+    --font-size-xxxl: 20px;
+    --font-size-26: 24px;
+    --font-size-extra-large: 140.34px;
+
+    --line-heigth-sm: 12px;
+    --line-heigth-base: 16px;
+    --line-heigth-lg: 18px;
+    --line-heigth-xl: 20px;
+    --line-heigth-24: 12.12px;
+    --line-heigth-34: 34px;
+    --line-heigth-xxxl: 20.21px;
+  }
+
+  .d-flex-s {
+    display: flex !important;
+  }
+ 
+  .ngx-display-none {
+    display: none !important;
+  }
+
+  .ng-display-block {
+    display: block !important;
+  }
+
+  .nav-tabs-s {
+    flex-wrap: nowrap;
+    overflow: scroll;
+  }
+
+  .modal-form-s {
+    max-height: 45vh;
+  }
+
+  .nav-tabs .nav-link.active {
+    .nav-tab-name {
+      display: block !important;
+    }
+  }
+
+  .nav-tab-name {
+    display: none !important;
+  }
+
+  .order-sm--1 {
+    order: -1 !important;
+  }
+}
+@media (min-height: 800px) { 
+.h-45-vh{
+  height: 41vh ;
+}
+} 
+
+/* Cible l'élément ayant la classe dropdown-toggle */
+.dropdown-toggle::after {
+    display: none !important;
+}
+ /* Style pour tous les éléments bloqués (boutons, actions) */
+.btn-disabled {
+  opacity: 0.6; 
+  cursor: not-allowed !important;
+  /* Optionnel : peut être nécessaire si un élément est désactivé sans [disabled] natif */
+  /* pointer-events: none; */ 
+}

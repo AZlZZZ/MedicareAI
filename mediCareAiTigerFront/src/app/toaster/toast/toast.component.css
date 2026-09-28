@@ -1,0 +1,64 @@
+/* Fichier : toast.component.css */
+
+.custom-toast {
+    /* Styles généraux */
+    width: 300px;
+    min-height: 50px; 
+    border-radius: 8px;
+    /* Retrait de la bordure gauche pour l'ajouter sur .color-indicator */
+    border: none; 
+    padding-left: 0 !important;
+    overflow: hidden; 
+    position: relative; 
+}
+
+/* L'élément color-indicator devient le conteneur centré pour l'image */
+.color-indicator {
+    /* Largeur et hauteur de la zone colorée/l'image */
+    width: 50px; 
+    height: 100%; /* S'étend sur toute la hauteur du custom-toast */
+    
+    /* Centrage de l'image (l'enfant img) à l'intérieur de cette zone */
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical */
+    
+    /* Positionnement de la barre de couleur à gauche */
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    
+    /* Utilisation du background pour la couleur de la barre */
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+/* Espacement du contenu du message */
+.custom-toast .flex-grow-1 {
+    margin-left: 60px; /* Ajuster la marge pour que le texte commence après la barre de 50px */
+}
+
+
+/* --- Styles de Couleur du FOND de la BARRE --- */
+
+.toast-info-border {
+    /* Aucune bordure sur le toast principal */
+}
+.toast-success-border {
+    /* Aucune bordure sur le toast principal */
+}
+.toast-error-border {
+    /* Aucune bordure sur le toast principal */
+}
+
+/* Appliquer les couleurs de FOND sur l'indicateur de couleur */
+.toast-info-border .color-indicator {
+    background-color: #53599e; /* Couleur Information */
+}
+.toast-success-border .color-indicator {
+    background-color: #70b970; /* Couleur Succès */
+}
+.toast-error-border .color-indicator {
+    background-color: #ff9966; /* Couleur Erreur */
+}

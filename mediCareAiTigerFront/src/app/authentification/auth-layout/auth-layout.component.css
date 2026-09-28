@@ -1,0 +1,155 @@
+/* body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            overflow: hidden;
+        } */
+.main-container {
+  position: relative;
+  /* width: 900px; */
+  /* height: 650px;   */
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  /* border-radius: 20px; */
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+}
+/* --- Panneau de Choix (Portail) --- */
+.choice-panel {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-principal) 0%,
+    var(--color-secondaire) 100%
+  );
+  color: white;
+  transition: transform var(--transition-speed)
+    cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.choice-panel h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.choice-panel p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.choice-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn-choice {
+  padding: 15px 40px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+.btn-choice:hover {
+  background: white ;
+  color: var(--color-principal);
+  transform: scale(1.05);
+}
+.btn-choice.active {
+  background: white ;
+  color: var(--color-principal);
+  transform: scale(1.05);
+}
+.btn-choice img {
+  margin-right: 10px;
+}
+
+/* --- Panneau de Formulaire --- */
+.form-panel {
+  flex: 1.2;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.form-content {
+  display: none;
+  animation: fadeIn 0.5s forwards;
+}
+.form-content.active {
+  display: block;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 10px;
+}
+.form-subtitle {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.form-floating {
+  margin-bottom: 20px;
+}
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding-top: 1.6rem;
+  padding-bottom: 0.6rem;
+}
+.form-control:focus {
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 0.2rem rgba(10, 77, 184, 0.25);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .main-container {
+    flex-direction: column;
+    /* width: 95%; */
+    /* height: auto; */
+    /* max-height: 95vh; */
+    overflow-y: auto;
+  }
+  .choice-panel,
+  .form-panel {
+    flex: none;
+    width: 100%;
+  }
+  .choice-panel {
+    padding: 30px;
+  }
+  .form-panel {
+    padding: 40px 30px;
+  }
+}

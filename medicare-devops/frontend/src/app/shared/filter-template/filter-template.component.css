@@ -1,0 +1,90 @@
+::ng-deep .ngb-dp-weekday {
+  display: none;
+}
+.input-container-search {
+  padding: 5px;
+  font-size: 12px;
+}
+
+.show {
+  width: auto;
+}
+.input-container-search input,
+.input-container-search select {
+  flex: 1; /* Les inputs prennent toute la largeur disponible */
+  margin-right: 10px; /* Espacement entre les inputs */
+  border: none; /* Enlever les bordures par défaut */
+  padding: 5px;
+  background: none !important;
+}
+
+.input-container-search input {
+  flex: 3; /* Input prend 3x plus d'espace que le select */
+  color:  var(--color-blue) ; 
+}
+
+.input-container-search select {
+  flex: 1; /* Select prend 1x d'espace */
+     /* border-left: 1px solid 8F8F8F ; */
+  color: #a3aed0 !important; 
+  width: max-content;
+}
+.calendar-container , .custom-datepicker {
+  background-color: white;
+  z-index: 10;
+}
+.input-container-search select:focus,
+.input-container-search input:focus {
+  outline: none; /* Enlever la bordure de focus par défaut */
+  border: none; /* Aucune bordure lorsqu'il est sélectionné */
+}
+
+.input-container-search input:last-child {
+  margin-right: 0; /* Pas de marge à droite pour le dernier input */
+}
+.p-dropown-item {
+  color: #8f8f8f !important ;
+}
+.bordre-button {
+  border: 0.8px solid #a2a1a833 !important ;
+  color: #a2a1a833;
+  border-radius: 8px;
+  height: 40px !important;
+  background-color: transparent !important;
+}
+
+.btn-reset-filter {
+  font-weight: 300;
+  font-style: Light;
+  font-size: 12.8px;
+  line-height: 19.2px;
+  letter-spacing: 0%;
+  color: var(--color-primary-text);
+  /* color: #16151c; */
+  border: none;
+  background: transparent;
+}
+.span-title {
+  color: #8f8f8f;
+  /* font-family: Lexend; */
+  font-weight: 300;
+  font-style: Light;
+  font-size: 12.8px;
+  line-height: 19.2px;
+  letter-spacing: 0%;
+}
+
+.input-container-search select {
+    flex: 1; /* Select prend 1x d'espace */
+    /* border-left: 1px solid 8F8F8F ; */
+    color: #8F8F8F !important;
+    width: max-content;
+  } 
+
+ ::ng-deep .dropdown-menu {
+    width : max-content !important; 
+ }
+
+ .btn-status::after {
+  display: none !important;
+}

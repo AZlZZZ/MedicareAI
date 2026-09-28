@@ -1,0 +1,39 @@
+.patient-item {
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid #f0f0f0;
+}
+.patient-item:hover { background: #f8f9fa; }
+.patient-item.selected { background: #e8f0fe; }
+
+.avatar-sm {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--color-principal, #4f6ef7);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 14px;
+  flex-shrink: 0;
+}
+
+.schedule-card { background: #fafafa; transition: box-shadow 0.15s; }
+.schedule-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+
+.alert-item { transition: background 0.15s; }
+.alert-item:hover { background: #f8f9fa; }
+.alert-item.unread { background: #fffbea; }
+
+.badge-circle {
+  position: absolute;
+  top: 4px; right: 4px;
+  background: #e53935;
+  color: #fff;
+  border-radius: 50%;
+  width: 18px; height: 18px;
+  font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.cursor-pointer { cursor: pointer; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }

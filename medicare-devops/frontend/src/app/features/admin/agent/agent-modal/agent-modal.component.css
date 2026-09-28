@@ -1,0 +1,148 @@
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Ajoute une icône personnalisée */
+input[type="date"] {
+  position: relative;
+  /* background: url("../../../../assets/icons/calendar.svg") no-repeat; */
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 35px; /* Pour éviter que le texte ne chevauche l'icône */
+  cursor: pointer;
+}
+  ::-webkit-scrollbar {
+  width: 8px;
+  height: 2px !important ;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+
+  .badge{
+    padding : 1% !important;
+  }
+
+   /* style input phone  */
+   
+::ng-deep ngx-intl-tel-input .iti {
+  width: 100% !important;
+}
+::ng-deep .iti input.iti__tel-input,
+.iti input.iti__tel-input[type=text],
+.iti input.iti__tel-input[type=tel] {
+  line-height: 18.15px !important;
+  font-size: 15px !important;
+  color: black !important;
+  /* border-radius: 15px !important; */
+  /* border: 1px solid #DFEAF2 !important; */
+  border: none !important;
+ height: 48px !important;
+ border-radius:15px !important;
+}
+::ng-deep .iti  .invalid-input  {
+  border: 1px solid var(--color-danger)  !important;
+  /* border: 1px solid #E4626F !important; */
+}
+/* phonenumber liste  */
+::ng-deep .iti__dropdown-content {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+ .invalid-input  {
+  border: 1px solid var(--color-danger)  !important;
+  /* border: 1px solid #E4626F !important; */
+}
+
+.password-container {
+  position: relative;
+  display: inline-block;
+  width:  100% ;
+}
+
+.password-tooltip {
+  position: absolute;
+  bottom: -97px;
+  left: 30%;
+  margin-left: 10px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  width: max-content;
+  min-width: 220px;
+  color: var(--color-danger) ;
+  /* color: #E4626F; */
+;
+  line-height: 1.4;
+}
+
+.password-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #e0e0e0 transparent transparent;
+}
+
+.password-tooltip div.valid {
+  color:  #4A6276;
+}
+::ng-deep .ng-select.error-msg2 .ng-select-container {
+  border: 1px solid var(--color-danger)  !important;
+  /* border: 1px solid #E4626F !important; */
+}
+
+.tab-modal {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+padding: 0.75rem 1rem;
+}
+@media (max-height = 991) and (min-width= 1000) {
+  .modal-form-s {
+    max-height: 40vh;
+  }
+}
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+
+
+.toggle-icon {
+  position: absolute;
+  top: 67%;
+  right: 0px;
+  transform: translateY(-50%);
+  width: 40px !important;
+  height: 40px  !important ;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.toggle-icon:hover {
+  opacity: 1;
+}

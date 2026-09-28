@@ -1,0 +1,91 @@
+<div class="modal-header">
+  <span class="ngbNavLink">
+    @if(modaltype ==='add'){ {{ "CLIENT.ADD" | translate }} }
+    @else { {{ "CLIENT.EDIT" | translate }} }
+  </span>
+  <button type="button" class="btn-close" aria-label="Close" (click)="dismissModal()"></button>
+</div>
+
+<div class="modal-body rotating-svg_client bg-client">
+  <form [formGroup]="ClientForm">
+    <div class="row">
+      <div class="container">
+        <div class="avatar-wrapper center-avatar justify-content-center">
+          <img class="avatar_profil" style="cursor:pointer" [src]="photo" alt="avatar" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row modal-form m-1 p-4">
+
+      <!-- First Name -->
+      <div class="form-group col-6 mb-3">
+        <label class="label_input">{{ "FORM.FIRSTNAME" | translate }} <span class="text-danger">*</span></label>
+        <input type="text" class="form-control input_style" formControlName="firstName"
+          [class.is-invalid]="firstName?.invalid && (firstName?.dirty || firstName?.touched)" />
+        <div class="invalid-feedback">
+          <span *ngIf="firstName?.errors?.['required']">Required.</span>
+          <span *ngIf="firstName?.errors?.['minlength']">Min 2 characters.</span>
+          <span *ngIf="firstName?.errors?.['maxlength']">Max 50 characters.</span>
+          <span *ngIf="firstName?.errors?.['pattern']">Letters only.</span>
+        </div>
+      </div>
+
+      <!-- Last Name -->
+      <div class="form-group col-6 mb-3">
+        <label class="label_input">{{ "FORM.LASTNAME" | translate }} <span class="text-danger">*</span></label>
+        <input type="text" class="form-control input_style" formControlName="lastName"
+          [class.is-invalid]="lastName?.invalid && (lastName?.dirty || lastName?.touched)" />
+        <div class="invalid-feedback">
+          <span *ngIf="lastName?.errors?.['required']">Required.</span>
+          <span *ngIf="lastName?.errors?.['minlength']">Min 2 characters.</span>
+          <span *ngIf="lastName?.errors?.['maxlength']">Max 50 characters.</span>
+          <span *ngIf="lastName?.errors?.['pattern']">Letters only.</span>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group col-6 mb-3">
+        <label class="label_input">{{ "FORM.EMAIL" | translate }} <span class="text-danger">*</span></label>
+        <input type="email" class="form-control input_style" formControlName="email"
+          placeholder="example@email.com"
+          [class.is-invalid]="email?.invalid && (email?.dirty || email?.touched)" />
+        <div class="invalid-feedback">
+          <span *ngIf="email?.errors?.['required']">Required.</span>
+          <span *ngIf="email?.errors?.['email']">Invalid email address.</span>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group col-6 mb-3">
+        <label class="label_input">{{ "FORM.PHONE" | translate }}</label>
+        <input type="text" class="form-control input_style" formControlName="phoneNumber"
+          placeholder="+21620600200"
+          [class.is-invalid]="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" />
+        <div class="invalid-feedback">
+          <span *ngIf="phoneNumber?.errors?.['pattern']">8–15 digits, optional + prefix.</span>
+        </div>
+      </div>
+
+      <!-- Birth Date -->
+      <div class="form-group col-6 mb-3">
+        <label class="label_input">{{ "FORM.BIRTHDAY" | translate }}
+          <span *ngIf="modaltype === 'add'" class="text-danger">*</span>
+        </label>
+        <input type="date" class="form-control input_style" formControlName="birthDate"
+          [max]="today"
+          [class.is-invalid]="birthDate?.invalid && (birthDate?.dirty || birthDate?.touched)" />
+        <div class="invalid-feedback">
+          <span *ngIf="birthDate?.errors?.['required']">Required.</span>
+          <span *ngIf="birthDate?.errors?.['futureDate']">Birth date must be in the past.</span>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-reset" (click)="dismissModal()">{{ "CANCEL" | translate }}</button>
+  <button type="button" class="btn btn_submit" (click)="save()" [disabled]="ClientForm.invalid">{{ "SAVE" | translate }}</button>
+</div>

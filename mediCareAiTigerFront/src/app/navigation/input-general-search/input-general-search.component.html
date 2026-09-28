@@ -1,0 +1,43 @@
+<div class="search-bar p-2 d-flex align-items-center input-container-search">
+    <svg
+        width="25"
+        height="26"
+        viewBox="0 0 25 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.4734 22.1133C5.86922 22.1133 1.31714 17.5612 1.31714 11.957C1.31714 6.35286 5.86922 1.80078 11.4734 1.80078C17.0776 1.80078 21.6296 6.35286 21.6296 11.957C21.6296 17.5612 17.0776 22.1133 11.4734 22.1133ZM11.4734 3.36328C6.7338 3.36328 2.87964 7.21745 2.87964 11.957C2.87964 16.6966 6.7338 20.5508 11.4734 20.5508C16.213 20.5508 20.0671 16.6966 20.0671 11.957C20.0671 7.21745 16.213 3.36328 11.4734 3.36328Z"
+          fill="#0A2782"
+        />
+        <path
+          d="M21.0151 24.2376C20.9318 24.2376 20.8484 24.2272 20.7755 24.2168C20.2859 24.1543 19.4005 23.821 18.9005 22.3314C18.6401 21.5501 18.7339 20.7689 19.1609 20.1751C19.588 19.5814 20.3068 19.248 21.1297 19.248C22.1922 19.248 23.0255 19.6543 23.4005 20.373C23.7755 21.0918 23.6714 22.0085 23.0776 22.8939C22.338 24.0085 21.5359 24.2376 21.0151 24.2376ZM20.3901 21.8418C20.5672 22.3835 20.8172 22.6543 20.9839 22.6751C21.1505 22.696 21.463 22.498 21.7859 22.0293C22.088 21.5814 22.1089 21.2585 22.0359 21.1126C21.963 20.9668 21.6714 20.8105 21.1297 20.8105C20.8068 20.8105 20.5672 20.9147 20.4318 21.0918C20.3068 21.2689 20.2859 21.5397 20.3901 21.8418Z"
+          fill="#0A2782"
+        />
+      </svg>
+  <div class="align-items-center d-flex flex-grow-1" style="transition: all 0.3s ease;">
+    <input 
+      class="mr-sm-2 search-input-s" 
+      type="search" 
+      [placeholder]="typeSearch" 
+      [ngbTypeahead]="search" 
+      [resultTemplate]="rt"
+      [inputFormatter]="formatterUser" 
+      (selectItem)="onSelectItem($event)"
+    >
+    
+    <select class="custom-select-type" (change)="onChangeType($event)">
+      <option value="Reference">Reference</option>
+      <option *ngFor="let item of searchTypes" [value]="item.value">
+        {{ item.item | translate }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<ng-template #rt let-result="result" let-term="term">
+  <div class="custom-result row w-100 px-2">
+    <span class="client-id col-4"><b>{{prefixe}}{{ result.id }}</b></span>
+    <span class="client-name col-8">{{ result.firstName }} {{ result.lastName }}</span>
+  </div>
+</ng-template>

@@ -1,0 +1,59 @@
+
+
+@if(loading){
+  <app-loader></app-loader>
+}
+@if(data?.length!=0){
+<div class="d-flex flex-wrap gap-2">
+  @for (item of data ; track item ; let index = $index) {
+
+  <div class="card height-95 margin-1 w-45 ws-100" [ngClass]="item?.class" >
+    <div
+      class="card-body d-flex paddin-2 align-items-center justify-content-between"
+    >
+      <div class="cache-rest">
+        <p class="label-info">{{ item?.title | translate }}</p>
+        <span class="size-24 label-info">{{ item?.value || "-" }}</span>
+      </div>
+      @if ( item?.icon ){
+      <img
+        [src]="'icons/' + item?.icon"
+        alt=""
+        height="35px"
+        width="35px"
+      />}@else{
+      <div class="icon-container">
+        @if(item?.documents?.length >0 ){ @for(itemdoc of item?.documents; track
+        itemdoc){
+        <img
+          [src]="item ? url + itemdoc : 'assets/images/doc-default.png'"
+          alt=""
+          class="img_icon pointer"
+          (click)="openFile(contentFiles, itemdoc)"
+        />
+        }}@else {
+        <img
+          src="assets/images/doc-default.png"
+          alt=""
+          class="img_icon pointer"
+        />}
+      </div>
+      }
+    </div>
+  </div>
+  }
+</div>
+} @else { }
+
+<ng-template #contentFiles let-modal>
+  <div
+    class="container-file modal-body h-75 d-flex justify-content-center"
+    style="border-radius: 15px"
+  >
+    <img
+      [src]="selectedFile"
+      class="img-file h-75 w-50"
+      alt="Fichiers de vehicule"
+    />
+  </div>
+</ng-template>

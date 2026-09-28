@@ -1,0 +1,367 @@
+@if (!loading) {
+  <div class="main-content-wrapper d-flex flex-column justify-content-between">
+<div class="table-wrapper position-relative">
+  <div class="scroll-hint d-md-none z-index-1000">
+    <svg
+      width="12"
+      height="18"
+      viewBox="0 0 12 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g opacity="0.47">
+        <path
+          d="M2.9881 18C2.73695 18 2.48579 17.9076 2.28751 17.7096C1.90416 17.3269 1.90416 16.6933 2.28751 16.3105L9.61071 8.99835L2.28751 1.68616C1.90416 1.30339 1.90416 0.669844 2.28751 0.287076C2.67085 -0.095692 3.30535 -0.095692 3.6887 0.287076L11.7125 8.29881C12.0958 8.68158 12.0958 9.31512 11.7125 9.69789L3.6887 17.7096C3.49042 17.9076 3.23926 18 2.9881 18Z"
+          fill="#1248ED"
+        />
+        <path
+          d="M0.592862 15C0.442168 15 0.291474 14.9384 0.172505 14.8064C-0.0575016 14.5512 -0.0575016 14.1289 0.172505 13.8737L4.56642 8.9989L0.172505 4.12411C-0.0575016 3.86893 -0.0575016 3.44656 0.172505 3.19138C0.402512 2.93621 0.783212 2.93621 1.01322 3.19138L5.8275 8.53254C6.0575 8.78772 6.0575 9.21008 5.8275 9.46526L1.01322 14.8064C0.89425 14.9384 0.743556 15 0.592862 15Z"
+          fill="#1248ED"
+        />
+      </g>
+    </svg>
+  </div>
+  <!-- <div class="table-content-area"> -->
+  <div class="table-responsive">
+    <table class="table mt-1">
+      <thead>
+        <tr>
+          @for( col of displayedColumns ; track col){
+          <th scope="col">{{ col | translate }}</th>
+           @if(col === 'SELECT'){
+          <th scope="col" class="text-center">
+
+            <label class="custom-checkbox">
+              <input type="checkbox" (change)="toggleSelectAll($event)" />
+              <span class="checkmark"></span>
+            </label>
+          </th>
+          }
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @if(dataSource.length != 0){ @for( item of dataSource; track item){
+        <tr >
+          @for( col of dataColumns ; track col){ 
+            
+            
+            @if(col === 'id' && (prefixe ==
+          'PAT-' || prefixe == 'AGE-' || prefixe == 'DOC-' ||prefixe ==="APP-" ) ){
+          <td class="align-middle" scope="col">{{ prefixe }}{{ item[col] }}</td>
+          } @else if(col === 'Client' || col === 'Agent' || col ==='Doctor'){ 
+            @if (prefixe===
+          'AGE-' ) {
+          <td scope="col" class="align-middle">
+            <div class="d-flex align-items-center">
+              <div>
+                <img
+                  class="img"
+                  [src]="'assets/images/' + item?.gender + '.png'"
+                />
+              </div>
+              <div class="ml-2" style="margin-left: 3%">
+                <p class="m-0">{{ item?.firstName }} {{ item?.lastName }}</p>
+                <span class="label-email"> {{ item?.email }}</span>
+              </div>
+            </div>
+          </td>
+          } 
+          @else if (prefixe=== 'PAT-') {
+          <td scope="col" class="align-middle">
+            <div class="d-flex align-items-center">
+              <div>
+                <img
+                  class="img"
+                  [src]="
+                    item?.profilePhoto
+                      ? url + item?.profilePhoto
+                      : 'assets/images/avatar.png'
+                  "
+                />
+              </div>
+              <div class="ml-2" style="margin-left: 3%">
+                <p class="m-0">{{ item.firstName }} {{ item.lastName }}</p>
+                <span class="label-email"> {{ item.email }}</span>
+              </div>
+            </div>
+          </td>
+          }@else if (( prefixe === 'RECO-' || prefixe === 'APP-') && col ==='Client' ) {
+          <td scope="col" class="align-middle">
+            <div class="d-flex align-items-center">
+              <div>
+                <img
+                  class="img"
+                  [src]="
+                    item?.patient?.profilePhoto
+                      ? url + item?.patient?.profilePhoto
+                      : 'assets/images/avatar.png'
+                  "
+                />
+              </div>
+              <div class="ml-2" style="margin-left: 3%">
+                <p class="m-0">{{ item?.patient.firstName }} {{ item?.patient.lastName }}</p>
+                <span class="label-email"> {{item?.patient.email }}</span>
+              </div>
+            </div>
+          </td>
+          }@else if ( prefixe === 'APP-' && col ==='Doctor' ) {
+          <td scope="col" class="align-middle">
+            <div class="d-flex align-items-center">
+              <div>
+                <img
+                  class="img"
+                  [src]="
+                    item?.doctor?.profilePhoto
+                      ? url + item?.doctor?.profilePhoto
+                      : 'assets/images/avatar.png'
+                  "
+                />
+              </div>
+              <div class="ml-2" style="margin-left: 3%">
+                <p class="m-0">{{ item?.doctor.firstName }} {{ item?.doctor.lastName }}</p>
+                <span class="label-email"> {{item?.doctor.email }}</span>
+              </div>
+            </div>
+          </td>
+          } @else{
+          <td scope="col" class="align-middle">
+            <div class="d-flex align-items-center">
+              <div>
+                <img
+                  class="img"
+                  [src]="
+                    item?.profilePhoto
+                      ? url + item?.profilePhoto
+                      : 'assets/images/avatar.png'
+                  "
+                />
+              </div>
+              <div class="ml-2" style="margin-left: 3%">
+                <p class="m-0">{{ item.firstName }} {{ item.lastName }}</p>
+                <span class="label-email"> {{ item.email }}</span>
+              </div>
+            </div>
+          </td>
+          } }
+          @else if (col === 'agents'){
+              <td class="align-middle text-center justify-content-center" scope="col"> 
+            <div class="avatar-group  " (click)="openModalListAgents(item)">
+              <!-- Afficher les 3 premiers membres -->
+              @if(item[col].length ===0 && !item['collaborator']){
+              <button mat-icon-button class="btn btn-assign ps-3"
+             >
+                {{ "NOTASSIGN" }}</button>
+              } @else {
+              @if(item['collaborator']){
+              <div class="avatar" [ngStyle]="{ 'z-index': $index }" ngbTooltip="{{ item[col].firstName }} {{
+                  item['collaborator'].lastName
+                }}">
+                <img [src]="
+                    item['collaborator'].photo
+                      ? url + item['collaborator'].photo
+                      : 'assets/images/default.png'
+                  " [alt]="item['collaborator'].firstName" />
+                <ng-template #noPhoto>
+                  <img src="assets/default-driver.png" alt="Default Avatar" />
+                </ng-template>
+              </div>
+              }
+              @for(collab of item[col]?.slice(0, 3); track $index){
+              <div class="avatar" [ngStyle]="{ 'z-index': $index  }"
+                ngbTooltip="{{ collab.firstName }} {{ collab.lastName }}">
+                <img  [src]="
+                    collab.photo
+                      ? url + collab.photo
+                      : 'assets/images/default.png'
+                  " [alt]="collab.firstName" />
+                <ng-template #noPhoto>
+                  <img src="assets/default-driver.png" alt="Default Avatar" />
+                </ng-template>
+              </div>
+              } }
+
+              <!-- Bulle "+X" pour les membres restants -->
+              @if( item[col]?.length > 3){
+              <div class="avatar more pointer" [ngStyle]="{ 'z-index':( item[col].length + 1) * 10}">
+                +{{ item[col].length - 3 }}
+              </div>
+              }
+
+            </div>
+          </td> 
+          } @else if(col === 'createdBy'|| col === 'client' ){
+          <td scope="col" class="align-middle">
+            <div class="d-flex align-items-center">
+              <div>
+                <img
+                  class="img"
+                  [src]="
+                    item[col]?.profilePhoto
+                      ? url + item[col]?.profilePhoto
+                      : 'assets/images/avatar.png'
+                  "
+                />
+              </div>
+              <div class="ml-2" style="margin-left: 3%">
+                <p class="m-0">
+                  {{ item[col]?.firstName }} {{ item[col]?.lastName }}
+                </p>
+                <span class="label-email"> {{ item[col]?.email }}</span>
+              </div>
+            </div>
+          </td>
+          }
+           @else if(col === 'status'||col==='statePayment'){
+          <td scope="col" class="align-middle">
+            <span class="badge m-1" [style]="getButtonClass(item[col])">
+              {{ item[col] }}</span
+            >
+          </td>
+          }
+        
+         
+           @else if(col === 'state'){
+          <td scope="col" class="align-middle">
+            @if(item[col] === 'ENABLED' ){
+            <span class="badge success-badge"> {{ item[col] }}</span>
+            } @else if(item[col] === 'DISABLED' ){
+            <span class="badge danger-badge">{{ item[col] }}</span>
+            } @else{
+            <span class="badge warning-badge">{{ item[col] }}</span>
+            }
+          </td>
+          } @else if(col === 'Roles' ){
+          <td scope="col" class="align-middle">
+            @for( r of item.roles; track r){
+            <!-- @if(r?.libelle === 'ADMIN' ){ -->
+            <span class="badge m-1" [style]="getButtonClass(r?.libelle)">
+              {{ r?.libelle }}</span
+            >
+            <!-- } @else if(r?.libelle === 'AGENT' ){
+        <span class="badge danger-badge">{{ r?.libelle }}</span>
+        } @else{
+        <span class="badge warning-badge">{{ r?.libelle  }}</span>
+        } -->
+            }
+          </td>
+          }
+         
+           @else if(col === 'Action'){
+
+          <td class="d-flex text-center">
+            
+            @if (prefixe !='AGC-' && prefixe !='APP-' ) {<button
+              mat-icon-button
+              class="btn btn-light btn-sm m-1"
+              (click)="onDetails(item)"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21.1303 9.8531C22.2899 11.0732 22.2899 12.9268 21.1303 14.1469C19.1745 16.2047 15.8155 19 12 19C8.18448 19 4.82549 16.2047 2.86971 14.1469C1.7101 12.9268 1.7101 11.0732 2.86971 9.8531C4.82549 7.79533 8.18448 5 12 5C15.8155 5 19.1745 7.79533 21.1303 9.8531Z"
+                  stroke="#16151C"
+                  stroke-width="1.5"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="3"
+                  stroke="#16151C"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </button>}
+
+            @if( prefixe ==='PRO-'|| prefixe ==='PAT-' 
+            ||prefixe ==='AGE-' || prefixe ==='DOC-' ) {
+            <button
+              mat-icon-button
+             class="btn btn-light btn-sm m-1"
+              (click)="onEdit(item)"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 21H21M13.7844 5.31171C13.7844 5.31171 13.7844 6.94634 15.419 8.58096C17.0537 10.2156 18.6883 10.2156 18.6883 10.2156M7.31963 17.9881L10.7523 17.4977C11.2475 17.4269 11.7064 17.1975 12.06 16.8438L20.3229 8.58096C21.2257 7.67818 21.2257 6.21449 20.3229 5.31171L18.6883 3.67708C17.7855 2.77431 16.3218 2.77431 15.419 3.67708L7.15616 11.94C6.80248 12.2936 6.57305 12.7525 6.50231 13.2477L6.01193 16.6804C5.90295 17.4432 6.5568 18.097 7.31963 17.9881Z"
+                  stroke="#16151C"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg></button
+            >}
+             @if( prefixe === "AGE-"  || prefixe === "PAT-" || prefixe === "APP-" || prefixe === "DOC-"  ){
+            <button
+              mat-icon-button
+            class="btn btn-light btn-sm m-1"
+              (click)="onDelete(item)"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 9L18.2841 18.3068C18.1238 20.3908 16.386 22 14.2959 22H9.70412C7.61398 22 5.87621 20.3908 5.71591 18.3068L5 9M21 7C18.4021 5.73398 15.3137 5 12 5C8.68635 5 5.59792 5.73398 3 7M10 5V4C10 2.89543 10.8954 2 12 2C13.1046 2 14 2.89543 14 4V5M10 11V17M14 11V17"
+                  stroke="#16151C"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg></button
+            >}
+          </td>
+
+          }
+          @else if(col === 'role'){
+          <td class="align-middle" scope="col">{{ item[col].libelle }}</td>
+          } @else{
+          <td class="align-middle" scope="col">{{ item[col] }}</td>
+
+          } }
+        </tr>
+     
+        }  
+      } @else {
+        <tr>
+          <td [attr.colspan]="displayedColumns.length + 1" class="text-center">
+            <img
+              src="{{ 'assets/icons/nothing.png' }}"
+              alt="Aucune donnée disponible"
+              style="max-width: 250px"
+            />
+            <p class="mt-2">{{ "TABLE.NODATA" | translate }}</p>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+ 
+  </div>
+  </div>
+  <!-- </div> -->
+     <div class=" pagination-footer start-0 p-1">
+    <!-- <div class="paginator-container pagination-footer start-0 p-1"> -->
+      <app-paginator
+        [pageSize]="pageSize"
+        [collectionSize]="collectionSize"
+        [page]="page"
+        (pageChane)="changePage($event)"
+        (changeSize)="changeSizePage($event)"
+      ></app-paginator>
+    </div>
+  </div>
+}@else{
+<app-loader></app-loader>
+}

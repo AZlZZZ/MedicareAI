@@ -1,0 +1,92 @@
+<div class="container-app d-flex flex-column gap-3 ">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <p class="title">{{ "AGENT.TITLE" | translate }}</p>
+    <div class="d-flex inputs-content">
+      <!-- Bouton export -->
+      <app-btn-export [loading]="loadingExport" (export)="export()"></app-btn-export>
+
+      <!-- Bouton Ajouter -->
+    <!-- @if(hasPermissionAdd){   -->
+      <!-- <button
+        type="button"
+        class="btn order_1 ws-100 d-none-sm m-1 btn-primary justify-content-center"
+        (click)="add()"
+      > -->
+      <button
+        type="button"
+        class="btn order_1 ws-100 d-none-sm m-1 btn-primary justify-content-center"
+        (click)="add()"
+      >
+     <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path
+            d="M11 7V15M15 11H7M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg> 
+        {{ "AGENT.ADD" | translate }}
+      </button>
+    <!-- } -->
+
+      <!-- Bouton FILTRER avec collapse -->
+
+      <button
+     [ngClass]="{
+    'border-blue': nbFilter > 0,
+    'btn-filtre-select': filterCollapse
+  }"
+        class="btn-filtre m-1 btn btn-light d-flex justify-content-center align-items-center gap-1 position-relative"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseFilters"
+        aria-expanded="false"
+        aria-controls="collapseFilters"
+              (click)="toggleCollapse()"
+      >
+     <img src="assets/icons/filter-icon.svg">
+        <span class="d-block-sm">{{ "FILTRER" | translate }}</span>
+        @if(nbFilter>0){<span class="badge-circle">{{ nbFilter }}</span> }
+      </button>
+    </div>
+  </div>
+
+  <!-- Composant filtre repliable -->
+  <div class="collapse" id="collapseFilters">
+      <app-filter-template
+        type="AGENTS"
+        (formValuesChanged)="changeFilter($event)"
+      ></app-filter-template>
+  </div>
+  <!--  ***************** Composant de tableau réutilisable pour l'affichage des agents
+    
+  - Utilise <app-reusable-table> pour afficher les données sous forme de tableau avec pagination
+     - [displayedColumns] : Définit les colonnes visibles dans le tableau
+     - [dataSource] : Données des agents à afficher
+     - [dataColumns] : Configuration détaillée des colonnes (Réference , email, phone , etc.)
+     - [page] : Page courante pour la pagination
+     - [totalPages] : Nombre total de pages disponibles
+     - [prefixe] : Préfixe de traduction ou d'identification des colonnes
+     - [numberOfDriver] : Nombre total d’agents
+     - [loading] : Affiche un indicateur de chargement si `true`
+     
+      Événements émis :
+     - (delete) : Déclenché lors d'une suppression d'agent
+     - (edit) : Déclenché lors de l’édition d’un agent
+     - (details) : Déclenché lors de la consultation des détails d’un agent
+     - (pagelength) : Émis lorsque la longueur de la pagination change
+     - (size) : Émis lorsque la taille de la page est modifiée
+  *************** --> 
+      <div class="table-responsive"> 
+              <app-reusable-table [displayedColumns]="displayedColumns" [dataSource]="Agents" [dataColumns]="dataColumns"
+              (delete)="delete($event)" [totalPages]="totalPage"    [page]="page"
+              [prefixe]="prefixe"   [numberOfDriver]="numberOfAgent" [loading]="loading" (pagelength)="changePageSize($event)" (size)="changeSize($event)" (edit)="edit($event)" (details)="details($event)" ></app-reusable-table>
+           
+      </div>
+    <!-- @if(hasPermissionAdd){  -->
+       <app-btn-flottant (add)="add()"></app-btn-flottant>
+      <!-- } -->
+
+
+</div>

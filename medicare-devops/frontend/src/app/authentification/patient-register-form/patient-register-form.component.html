@@ -1,0 +1,30 @@
+<div class="form-content" id="patientRegisterForm">
+  <h2 class="form-title">Request Account</h2>
+  <form [formGroup]="form">
+   
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control"
+        id="patientEmail"
+        placeholder="email@patient.com"
+       formControlName="username" [class.error-msg]="
+              username?.invalid && (username?.dirty || username?.touched)"
+      /><label for="patientEmail">Email </label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="password"
+        class="form-control"
+        id="patientPassword"
+        placeholder="Password"
+         formControlName="password" [class.error-msg]="
+              password?.invalid && (password?.dirty || password?.touched)"
+      /><label for="patientPassword">Mot de passe</label>
+    </div>
+    <button  (click)="save()" class="btn-submit w-100 ws-100">
+     Request Account  
+    </button>
+  </form>
+  <!-- <p class="back-link" id="backToChoiceFromStore">← Retour au choix</p> -->
+</div>

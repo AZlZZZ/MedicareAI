@@ -1,0 +1,51 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Medication Reminder</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #ffffff; margin: 0; padding: 0; color: #111827; }
+        .container { max-width: 520px; margin: 0 auto; padding: 18px; }
+        .header { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+        .card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px; background: #f9fafb; }
+        .label { color: #6b7280; font-size: 13px; }
+        .value { font-size: 16px; margin-top: 2px; font-weight: 600; }
+        .footer { margin-top: 18px; font-size: 12px; color: #6b7280; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">Medication Reminder</div>
+
+    <div class="card">
+        <div>
+            <div class="label">Medicament</div>
+            <div class="value">[[${medicamentName}]]</div>
+        </div>
+
+        <div style="height:10px"></div>
+
+        <div>
+            <div class="label">Dose</div>
+            <div class="value">[[${dose}]]</div>
+        </div>
+
+        <div style="height:10px"></div>
+
+        <div>
+            <div class="label">Take at</div>
+            <div class="value">[[${takeAt}]]</div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div style="font-size:13px;color:#374151;">
+            This is an automated reminder. Please follow your doctor's instructions.
+        </div>
+    </div>
+
+    <div class="footer">If you did not expect this reminder, contact your healthcare provider.</div>
+</div>
+</body>
+</html>
+

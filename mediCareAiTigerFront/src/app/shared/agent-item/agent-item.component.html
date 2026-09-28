@@ -1,0 +1,28 @@
+<div class="p-1 d-flex justify-content-between align-items-center race-border p-2">
+    <div class="d-flex w-70 gap-3 align-items-center">
+        <img class="img-collab " src="assets/images/agent.png" [src]="'assets/images/default.png'" alt="" />
+
+        <div>
+            <p class="m-0 base-text-color bold-text">
+          
+  <!-- @else { -->
+             {{ user.firstName }} {{ user.lastName }}
+           <!-- } -->
+            </p>
+
+            <div class="d-flex gap-2 second-text-color ">
+                <p class="m-0"> <img src="icons/phoneIcon.svg" alt=""> @if (type ==='AGENT') {
+ {{ user.userName }}  {{ user.roleName }}
+           }   {{user.phoneNumber}} </p>
+                <p class="m-0"><img src="icons/pinIcon.svg" alt=""> {{user.address}}</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn">
+        <img src="icons/deleteIcon.svg" alt="" (click)="remove()">
+
+    </button>
+
+
+</div>

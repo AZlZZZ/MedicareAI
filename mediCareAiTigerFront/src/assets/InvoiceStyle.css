@@ -1,0 +1,363 @@
+/* card Facturation  */
+.header-invoice {
+  color: var(--Secondary-Secondary600, #878787);
+  font-weight: 600;
+  font-size: 22.63px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+}
+.title-fact-span {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  /* text-align: right; */
+  text-transform: capitalize;
+  color: #cccccc;
+}
+.date-invoice {
+  color: var(--Secondary-Secondary600, #878787);
+  font-weight: 600;
+  font-size: 16.59px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  text-transform: capitalize;
+}
+.amount-due {
+  font-weight: 500;
+  font-size: 18.85px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+  color: var(--Secondary-Secondary400, #b0b0b0);
+}
+.amount-due-price {
+  font-weight: 700;
+  font-size: 34.1px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  text-transform: capitalize;
+  color: var(--Secondary-Secondary600, #878787);
+}
+.bg-card {
+  border: 1px solid #ececec;
+}
+
+.invoice-card {
+  /* height: 290px; */
+  /* padding: 13.23px 23.81px 13.23px 23.81px; */
+  gap: 8.82px;
+}
+
+/* styles histroic invoice   */
+
+.icon-bg-invoice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: #3563f0;
+  border-radius: 22.01px;
+  gap: 4.63px;
+  padding: 12.51px;
+}
+.amount-historic {
+  /* font-family: Poppins; */
+  font-weight: 600;
+  font-size: 16.3px;
+  line-height: 27.71px;
+  letter-spacing: 0%;
+  color: #3563f0;
+}
+.date-time-histroic {
+  /* font-family: Poppins; */
+  font-weight: 400;
+  font-size: 16.3px;
+  line-height: 27.71px;
+  letter-spacing: 0%;
+  color: #5e5e5e;
+}
+.name-facture {
+  /* font-family: Poppins; */
+  font-weight: 600;
+  font-size: 16.3px;
+  line-height: 27.71px;
+  letter-spacing: 0%;
+  color: #5e5e5e;
+}
+.btn-approve-facture {
+  height: 38px;
+  border-radius: 9.78px;
+  gap: 3.13px;
+  background-color: #3563f0;
+  color: white;
+}
+.invoice-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eaeaea;
+}
+.invoice-item:hover {
+  background-color: #f9f9f9;
+}
+.list-groupe-historic {
+  overflow: auto;
+  max-height: 400px;
+}
+
+/* modal Invoice  */
+.title-add-invoice {
+  color: #4e4e4e;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.label-input-invoice {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+  color: #232323;
+}
+.input-invoice {
+  width: 272px;
+  height: 50px;
+ padding: 2%;
+  border-radius: 15px;
+  border-width: 1px;
+  border: 1px solid var(--Secondary-Secondary300, #c4c4c4);
+}
+.label-gr {
+  color: #737373;
+  font-weight: 600;
+  font-size: 24.53px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.label-gr.active {
+  color: white;
+}
+.justify-items-center {
+  justify-items: center;
+}
+.flex-direction-column {
+  flex-direction: column;
+}
+
+/* balance style   */
+.balance-btn {
+  background-color: #007bff;
+  color: white;
+  width: 100%;
+  font-size: 14px;
+}
+.balance-btn.active {
+  width: 100%;
+  font-size: 14px;
+  background-color: #e4626f;
+  color: white;
+}
+.active-btn {
+  height: 50px;
+  /* width: 175px; */
+  border: 1px solid #cccccc;
+  color: #cccccc;
+}
+.active-btn.active {
+  height: 50px;
+  /* width: 175px; */
+  background-color: #007bff;
+  color: white;
+}
+.inactive-btn {
+  height: 50px;
+  /* width: 175px; */
+  border: 1px solid #cccccc;
+  color: #cccccc;
+}
+.inactive-btn.active {
+  background-color: #e4626f;
+
+  color: white;
+}
+.credit-value.active {
+  color: #e4626f;
+}
+.card.activefacture {
+  border: 1px solid #e4626f;
+}
+
+.devis-balance {
+  font-weight: 500;
+  font-size: 19.1px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #989898;
+}
+
+.price-fact {
+  font-weight: 600;
+  font-size: 23.99px;
+  line-height: 100%;
+  text-align: right;
+  text-transform: capitalize;
+  color: #878787;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.bg-historic-payment {
+  background-color: #fff;
+  overflow-y: scroll;
+  overflow-x: none !important;
+  max-height: 500px;
+  height: 500px;
+}
+/* user info style  */
+.name-entreprise {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #030229;
+}
+
+/* invoice item style   */
+.btn-add-balance {
+  /* width: 415; */
+  height: 64px;
+  border-radius: 6px;
+  border-width: 1px;
+padding: 10px;
+  gap: 15px;
+
+  border: 1px solid #ffffff;
+  background: #ed63001a;
+  justify-content: center;
+  justify-items: center;
+  display: flex;
+}
+.btn-add-credit {
+  /* width: 415; */
+  height: 64px;
+  border-radius: 6px;
+  border-width: 1px;
+padding: 10px;
+  gap: 15px;
+
+  border: 1px solid var(--Primary-Primary, #ED6300);;
+  background: white; 
+  justify-content: center;
+  justify-items: center;
+  display: flex;
+}
+.p-btn-add-balance  {
+font-weight: 500;
+font-size: 24px;
+line-height: 24px;
+letter-spacing: 0%;
+text-transform: capitalize;
+color: var(--Primary-Primary, #ED6300);
+
+}
+.p-btn-add-credit  {
+font-weight: 500;
+font-size: 24px;
+line-height: 24px;
+letter-spacing: 0%;
+text-transform: capitalize;
+color: #718096;
+
+
+}
+
+/* invoice profile golden dealer  */
+.bg-blue{
+  /* border: var(--color-principal) !important; */
+  color: var(--color-principal) !important ;
+  background-color:  color-mix(in srgb, var(--color-principal), transparent 75%) !important;
+  /* background-color:    var( --color-principal); */
+  /* background-color:     #F2994A; */
+  cursor: pointer;
+  }
+  
+  .bg-blue .value-sat{
+    color: var(--color-principal);
+      /* color: #FFFFFF; */
+  }
+  
+  
+  .bg-blue .title-stat{
+      color: #FFFFFF80;
+  } 
+
+  .copy-ref {
+    /* font-family: Poppins; */
+font-weight: 500;
+font-size: 15px;
+line-height: 22px;
+letter-spacing: 0%;
+color: #3563F0;
+
+  }
+
+  .bg-open-facture{
+  width: 111px;
+height: 35;
+border-radius: 16.5px;
+padding-top: 6px;
+padding-right: 35px;
+padding-bottom: 6px;
+padding-left: 35px;
+gap: 10px;
+ background: #3563F01C;
+
+
+  }
+  .ref-facture{
+font-weight: 600;
+font-size: 26.79px;
+line-height: 24.55px;
+letter-spacing: 0%;
+color: #3563F0;
+
+  }
+  .span-for {
+    color: #737373;
+    /* font-family: Poppins; */
+    font-weight: 500;
+    font-size: 22.32px;
+    line-height: 24.55px;
+    letter-spacing: 0%;
+  
+  }
+  .facture-title {
+    /* font-family: Poppins; */
+font-weight: 600;
+font-size: 26.79px;
+line-height: 24.55px;
+letter-spacing: 0%;
+color : #232323;
+
+  }
+
+  .bg-clair{
+    background-color: #3563F033 !important;
+
+  }
+
+  .red-border-left{
+    border-left: 3px solid var(--Primary-Primary, #ED6300)
+  }

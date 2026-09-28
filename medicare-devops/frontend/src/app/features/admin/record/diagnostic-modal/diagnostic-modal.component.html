@@ -1,0 +1,78 @@
+<div class="modal-header">
+  <span class="ngbNavLink">
+    {{ 'DIAGNOSTIC.ADD_TITLE' | translate }}
+  </span>
+  <button type="button" class="btn-close" aria-label="Close" (click)="dismissModal()"></button>
+</div>
+
+<div class="modal-body rotating-svg_client bg-client">
+  <form [formGroup]="DiagForm">
+    <div class="row modal-form m-1 p-4">
+      
+      <div class="form-group col-6 mb-3">
+        <label class="label_input">{{ "FORM.DISEASE_NAME" | translate }} *</label>
+        <input
+          type="text"
+          class="form-control input_style"
+          formControlName="diseaseName"
+          [class.error-msg]="f['diseaseName'].invalid && f['diseaseName'].touched"
+          placeholder="Ex: Grippe saisonnière"
+        />
+      </div>
+
+      <div class="form-group col-6 mb-3">
+        <label class="label_input">{{ "FORM.SEVERITY" | translate }} *</label>
+        <select class="form-select input_style" formControlName="severity" [class.error-msg]="f['severity'].invalid && f['severity'].touched">
+          <option value="LOW">🟢 LOW (Bénin)</option>
+          <option value="MEDIUM">🟡 MEDIUM (Modéré)</option>
+          <option value="HIGH">🟠 HIGH (Sévère)</option>
+          <option value="CRITICAL">🔴 CRITICAL (Critique)</option>
+        </select>
+      </div>
+
+      <div class="form-group col-12 mb-3">
+        <label class="label_input">{{ "FORM.SYMPTOMS" | translate }}</label>
+        <input
+          type="text"
+          class="form-control input_style"
+          formControlName="symptoms"
+          placeholder="Fièvre, toux sèche, fatigue..."
+        />
+      </div>
+
+      <div class="form-group col-12 mb-3">
+        <label class="label_input">{{ "FORM.DESCRIPTION" | translate }}</label>
+        <textarea
+          class="form-control input_style"
+          formControlName="description"
+          rows="3"
+          placeholder="Observations détaillées sur l'état du patient..."
+        ></textarea>
+      </div>
+
+      <div class="form-group col-12">
+        <label class="label_input text-success fw-bold">
+          <i class="fa fa-pills me-2"></i>{{ "FORM.PRESCRIPTION" | translate }}
+        </label>
+        <textarea
+          class="form-control input_style border-success"
+          style="background-color: #f8fff9"
+          formControlName="prescription"
+          rows="4"
+          placeholder="Médicaments, posologie et durée du traitement..."
+        ></textarea>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-reset" (click)="dismissModal()">
+    {{ "CANCEL" | translate }}
+  </button>
+  <button type="button" class="btn btn_submit" (click)="save()" [disabled]="loading">
+    @if(loading) { <span class="spinner-border spinner-border-sm me-2"></span> }
+    {{ "SAVE" | translate }}
+  </button>
+</div>

@@ -1,0 +1,70 @@
+<div
+  class="card h-100 card-profile p-2"
+  style="border: 1px solid #ececec; border-radius: 12px"
+>
+  <div class="row m-2">
+    <div class="col-8">
+      <p class="title-chart">
+        @if(type==="performance"){
+        {{ "PERF" | translate }}
+        } @else {
+        {{ "INVOICE.TOTALEARNING" | translate }}
+        }
+      </p>
+    </div>
+
+    <div class="col-4 text-end">
+      <div ngbDropdown class="d-inline-block">
+        <button
+             type="button"
+          class="btn-filtre btn btn-light d-flex justify-content-center align-items-center gap-1"
+          id="dropdownBasic2"
+          ngbDropdownToggle
+           [ngClass]="{
+          'border-blue': nbFilter > 0, }"
+        >
+          <img src="assets/icons/filter-icon.svg" />
+
+          <span class="d-block-sm"> {{ "FILTER" | translate }}</span>
+          @if(nbFilter>0){
+          <span class="badge-circle-filter">
+            <svg
+              (click)="onFilterCleared()"
+              width="17"
+              height="16"
+              viewBox="0 0 17 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="0.199951" width="16" height="16" rx="8" fill="#E4626F" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M11.1023 5.56904C11.2325 5.43886 11.2325 5.22781 11.1023 5.09763C10.9721 4.96746 10.7611 4.96746 10.6309 5.09763L8.19995 7.5286L5.76899 5.09763C5.63881 4.96746 5.42776 4.96746 5.29758 5.09763C5.16741 5.22781 5.16741 5.43886 5.29758 5.56904L7.72855 8L5.29758 10.431C5.16741 10.5611 5.16741 10.7722 5.29758 10.9024C5.42776 11.0325 5.63881 11.0325 5.76899 10.9024L8.19995 8.4714L10.6309 10.9024C10.7611 11.0325 10.9721 11.0325 11.1023 10.9024C11.2325 10.7722 11.2325 10.5611 11.1023 10.431L8.67136 8L11.1023 5.56904Z"
+                fill="white"
+              />
+            </svg>
+          </span>
+          }
+        </button>
+
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+          <app-filter-date-template
+            type="CHART"
+            (filterCleared)="onFilterCleared()"
+            (formValuesChanged)="changeFilter($event)"
+          ></app-filter-date-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-2 d-flex h-75 align-items-center justify-content-center">
+    <canvas
+      baseChart
+      [data]="barChartData"
+      [type]="barChartType"
+      [options]="barChartOptions"
+    >
+    </canvas>
+  </div>
+</div>

@@ -1,0 +1,203 @@
+/* Images Styles */
+
+/* profile client*/
+.img-profile {
+  height: 86.98px !important;
+  width: 86.98px !important;
+}
+/* icon weapper  styles   */
+.icon-wrapper_driver {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ed6300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 52%;
+  top: 70px;
+  transform: translateY(0);
+}
+.img-icon {
+  width: 41.67px;
+  height: 41.67px;
+  top: 27.17px;
+  left: 335.17px;
+  gap: 0px;
+  border-radius: 8.33px;
+  opacity: 0px;
+}
+.icon {
+  cursor: pointer;
+}
+
+.icon.left {
+  left: 10px;
+}
+
+.icon.right {
+  right: 10px;
+} 
+/*border image profile */ 
+.img-profile-driver{
+    border: 5px solid;
+    border-color: #9B9B9B;
+  }
+  .active-profile{
+    border-color:#15B097 !important ;
+  }
+  .top-icon{
+    top: 60px;
+    background: none;
+  }
+  .avatar-agent {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    border-radius: 33px;
+    border-width: 1.03px;
+    border: 1.03px solid #D9D9D9
+}
+.icon-founction {
+  width: 30px;
+  height: 30px;
+}
+/* */ 
+.icon-wrapper-agent {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #1814f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 52%;
+  top: 70px;
+  transform: translateY(0);
+}
+.avatar_profil_agent {
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+ 
+/* icon weapper  styles   */
+.icon-wrapper-agent {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #1814f3;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 53%;
+  top: 72px;
+  transform: translateY(0);
+} 
+
+/* avatar photo client style  */
+
+.avatar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.center-avatar{
+  top: 15%;
+    bottom: 2%;
+    position: relative;
+}
+.icon-wrapper {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #007bff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 70px;
+  /* Adjust left position as needed */
+  top: 70px;
+  /* Adjust top position as needed */
+  transform: translateY(0);
+  /* No vertical adjustment needed */
+}
+
+.icon-wrapper i {
+  color: white;
+  font-size: 16px;
+}
+
+.avatar_profil {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+/* .avatar {
+  width: 86.98px;
+  height: 86.98px;
+  left: 39.43px;
+  gap: 0px;
+  opacity: 0px;
+}  */
+
+
+ .img {
+    object-fit: cover;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.39px solid #ededed;
+  position: relative;
+  margin-left: -14px;
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar:hover {
+  transform: scale(1.2);
+  z-index: 100;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Style pour la bulle "+X" */
+.avatar.more {
+  background-color: #c6c6c6;
+  border: 1px solid #d9d9d9;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}

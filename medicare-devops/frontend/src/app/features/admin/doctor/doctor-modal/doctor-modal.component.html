@@ -1,0 +1,86 @@
+<div class="modal-header">
+  <span class="ngbNavLink">
+    {{ (data?.id ? 'DOCTOR.EDIT' : 'DOCTOR.ADD') | translate }}
+  </span>
+  <button type="button" class="btn-close" (click)="dismissModal()"></button>
+</div>
+
+<div class="modal-body rotating-svg_client bg-client overflow-y-scroll">
+  <form [formGroup]="form">
+    
+    <div class="row modal-form m-1 p-4">
+      <div class="form-group col-6">
+        <label class="label_input">{{ "FORM.FIRSTNAME" | translate }}</label>
+        <input
+          type="text"
+          class="form-control input_style"
+          formControlName="firstName"
+          [class.error-msg]="f['firstName'].invalid && f['firstName'].touched"
+          placeholder="Ex: Jean"
+        />
+      </div>
+
+      <div class="form-group col-6">
+        <label class="label_input">{{ "FORM.LASTNAME" | translate }}</label>
+        <input
+          type="text"
+          class="form-control input_style"
+          formControlName="lastName"
+          [class.error-msg]="f['lastName'].invalid && f['lastName'].touched"
+          placeholder="Ex: Dupont"
+        />
+      </div>
+
+      <div class="form-group col-6">
+        <label class="label_input">{{ "FORM.SPECIALIZATION" | translate }}</label>
+        <input
+          type="text"
+          class="form-control input_style"
+          formControlName="specialization"
+          [class.error-msg]="f['specialization'].invalid && f['specialization'].touched"
+          placeholder="Ex: Cardiologue"
+        />
+      </div>
+
+      <div class="form-group col-6">
+        <label class="label_input">{{ "FORM.EMAIL" | translate }}</label>
+        <input
+          type="email"
+          class="form-control input_style"
+          formControlName="email"
+          [class.error-msg]="f['email'].invalid && f['email'].touched"
+          placeholder="docteur@exemple.com"
+        />
+      </div>
+
+      <div class="form-group col-6">
+        <label class="label_input">{{ "FORM.PHONE" | translate }}</label>
+        <input
+          type="text"
+          class="form-control input_style"
+          formControlName="phoneNumber"
+          [class.error-msg]="f['phoneNumber'].invalid && f['phoneNumber'].touched"
+          placeholder="+216 ..."
+        />
+      </div>
+
+      <div class="form-group col-6">
+        <label class="label_input">{{ "FORM.ADRESSE" | translate }}</label>
+         <input
+          type="text"
+          class="form-control input_style"
+          formControlName="homeAddress"
+          [class.error-msg]="f['homeAddress'].invalid && f['homeAddress'].touched"
+          placeholder="Ex: 123 Rue de la Paix"
+        />
+      </div>
+
+   
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <app-cancel-button (cancel)="dismissModal()"></app-cancel-button>
+  <app-save-button [loading]="loading" (save)="save()"></app-save-button>
+</div>

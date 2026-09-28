@@ -1,0 +1,253 @@
+{
+  "CLIENT": {
+    "TITLE": "Gestion des Patients",
+    "TOTALCLIENTS": "Total des patients",
+    "ONLINE": "Patients en ligne",
+    "WORKING": "Patients en route",
+    "EDIT": "Modifier un patient ",
+    "ADD": "Ajouter un Patient" , 
+    "IMPORT":"Importer " , 
+    "LISTAGENCYS":"Liste des agences " , 
+    "ADDAGENCY":"Ajouter une Agence ",
+    "EDITAGENCY":"Modifier une Agence  `{{name}}` " , 
+    "SELECTED":"Equipe selectionnée" , 
+    "NBSELECTED":"sélectionné(s)"
+  },
+   "DOCTOR": {
+    "TITLE": "Gestion des Médecins",
+    "TOTALDOCTORS": "Total des médecins",
+    "ONLINE": "Médecins en ligne",
+    "WORKING": "Médecins en route",
+    "EDIT": "Modifier un médecin ",
+    "ADD": "Ajouter un Médecin"  
+   
+  }, 
+  "ALERT": {
+    "CINRQUIRE": "Le CIN est obligatoire et doit comporter exactement 8 chiffres.",
+    "EMAILREQUIRE": "Veuillez saisir une adresse e-mail valide.",
+    "USERNAMEREQUIRE": "Nom d'utilisateur est obligatoire et doit comporter au moins 4 caractères.",
+    "LASTNAMEREQUIRE": "Le nom de famille est obligatoire et  doit comporter au moins 4 caractères.",
+    "FIRSTNAMEREQUIRE": "Le pérnom doit est obligatoire et comporter au moins 4 caractères.",
+    "PHONEREQUIRE": "Le numéro de téléphone est obligatoire et doit comporter exactement 8 chiffres et doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre, un caractère spécial, et comporter entre 8 et 20 caractères.",
+    "PASSWORDREQUIRE": "Le mot de passe est obligatoire.",
+    "ROLEREQUIRE": "Le rôle est obligatoire."
+  },
+  "FORM": {
+    "ADRESSE": "Adresse",
+    "SPECIALIZATION": "Spécialisation",
+    "FILTERCLIENT": "Rechercher Client ",
+    "CLIENT": "Client",
+    "GOLDEN": "Partenaire",
+    "PRODUCT": "Produit",
+    "SALES": "commande",
+    "INVOICE": "Facture",
+    "AGENT": "Agent",
+    "VARIANTName": " Nom du Variante ",
+    "CATEGORYNAME": "Nom de categorie ",
+    "NAMEGOLDEN": "Nom Partenaire",
+    "RESGOLDEN": "Responsable ",
+    "REF": "Référence",
+    "NAMEBADGE": "Nom/description du badge",
+    "SEARCHCATEGORY": "Rechercher une catégorie",
+    "PLACGOLDEN": "Chercher un partenaire",
+    "VARIANT": "Variante(s)",
+    "DATEINS": "Date d’inscription ",
+    "REGION": "Région",
+    "SELECTREGION": " Sélectionner région",
+    "BIRTHDAY": "Date de naissance",
+    "COUNTRY": "Pays",
+    "GENDER": "Genre",
+    "SLECETGENDER": "Sélectionner le genre",
+    "MALE": "Homme",
+    "F": "Femme",
+    "ROLEREQUIRE": "Le rôle est obligatoire.",
+    "NAMEGOLDENREQUIRE": "Le nom d'entreprise est obligatoire.",
+    "NAMEGOLDENRESPONSABLEREQUIRE": "Le nom  de responsable est obligatoire.",
+    "ADRESSREQUIRE": "L'adresse est obligatoire.",
+    "BIRTHDAYQUIRE": "Date de naissance  est obligatoire.",
+    "REGIONQUIRE": "Region est obligatoire.",
+    "FIRSTNAME": "Prénom",
+    "USERNAME": "Nom d'utilisateur",
+    "LASTNAME": "Nom de famille",
+    "PHONE": "Numéro de téléphone",
+    "EMAIL": "Adresse e-mail",
+    "DEALERNAME": "Nom du dealer",
+    "ADRESS": "Adresse ",
+    "GOLDENRESPONSABLENAME": "Nom reponsable du dealer ",
+    "T": "Titre",
+    "D": "Date d'expiration",
+    "NBU": "Nombre d'utilisations",
+    "CODE": "Code",
+    "TYPE": "Type de code",
+    "SELECTTYPE": "Selectionée  Type de code ",
+    "RED": "Réduction",
+    "OTHER": "autre",
+    "USER": "Utilisateur",
+    "CREATEAT": "Date d’inscription",
+    "SELECTGENDER": "selectionnée Gender ",
+    "M": "Homme",
+    "SECURITY": "Sécurité",
+    "PASSWORD": "Mot de passe",
+    "ROLE": "Rôle",
+    "SELECTROLE": "Sélectionner un rôle",
+    "PLACLIENT": "Chercher un client",
+    "SEARCHPARTNER": "Chercher un partnaire" , 
+    "PLMAIL":"******@gmail.com" ,
+    "STORE":"Partnaire", 
+     "PLASTNAME": "Nom de famille",
+    "PHONEFORMAT": "XX XXX XXX", 
+      "PLALASTNAME": "nom de famille",
+    "PLFIRSTNAME": "prénom", 
+    "FACTURE":"Facture" 
+
+  },
+
+  "TABSLIST": {
+    "PERINFO": "Informations personnelles",
+    "PROINFO": "Informations professionnelles",
+    "ADDRESS": "Adresse par defaut ",
+    "HISTORIQUE": "historique"
+  },
+ 
+  "PAGINATOR": {
+    "SHOWING": "Affichage",
+    "RECORDS": "éléments",
+    "TO": "à",
+    "OUTOF": "sur"
+  },
+
+  "TABLE": {
+    "DOCTOR": "Médecin",
+    "PATIENT": "Patient",
+    "NBDIAGNOSTIC": "N° diagnostic",
+   "SPECIALIZATION": "Spécialisation",
+    "DESCRIPTION": "Description",
+    "NUM": "N°",
+    "REF": "Référence",
+    "STATUS": "Statut",
+    "TEL": "N° téléphone",
+    "NAME": "Nom et prénom",
+    "USERNAME": "Nom d'utilisateur",
+    "ADRESS": "Adresse ",
+    "DATEINSCRIPTION": "Date d'inscription",
+    "CREATIONDATE": "Date de création",
+    "ROLE": "Rôle",
+    "REGION": "Région",
+    "WEEK": "Semaine",
+   
+    "DATE": "Date",
+    "NODATA": "Pas de donnéees",
+    "DOMICILE": "Adresse domicile",
+     "FULLNAME": "Nom & Prénom",
+    "PHONE": "Téléphone",
+    "EMAIL": "Email",
+    "STATE":"Etat",
+    "ACTION": "Action"
+  },
+  "AGENT": {
+    "ADD": "Ajouter un nouvel agent",
+    "TITLE": "Gestion des agents ",
+    "ADDPROFILE": "Profil de l'agent",
+    "EDITPROFILE": "Modifier le profil" ,
+     "SECURITY":"Sécurité"
+  },
+  "MEDICAMENT": {
+    "TITLE": "Gestion des Médicaments",
+    "ADD": "Ajouter un Médicament",
+    "EDIT": "Modifier le Médicament",
+    "NAME": "Nom",
+    "NAME_PLACEHOLDER": "ex. Paracétamol",
+    "DESCRIPTION": "Description",
+    "DESC_PLACEHOLDER": "Description optionnelle...",
+    "SEARCH": "Rechercher un médicament...",
+    "NO_DESC": "Aucune description",
+    "TOTAL": "Total médicaments",
+    "RESULTS": "Résultats trouvés",
+    "STOCK": "Stock",
+    "EDIT_STOCK": "Modifier le stock"
+  },
+  "VALIDATION": {
+    "REQUIRED": "Ce champ est obligatoire.",
+    "MAX_120": "Maximum 120 caractères autorisés.",
+    "MAX_500": "Maximum 500 caractères autorisés.",
+    "MIN_0": "La valeur doit être 0 ou plus."
+  },
+  "ACTION": {
+    "EDIT": "Modifier",
+    "DELETE": "Supprimer"
+  },
+  "RECORD": {
+    "TITLE": "Gestion des dossiers médicaux",
+    "ADD": "Ajouter un nouveau dossier médical",
+    "DIAGNOSTIC": "Diagnostic",
+    "DESCRIPTION": "Description",
+    "PATIENT": "Patient",
+    "DOCTOR": "Médecin"
+  },
+  "APPOINTMENT": {
+    "TITLE": "Gestion des rendez-vous",
+    "ADD": "Ajouter un nouveau rendez-vous",
+    "PATIENT": "Patient",
+    "DOCTOR": "Médecin",
+    "DATE": "Date et Heure"
+  },
+ 
+  "NAVBAR": {
+    "LOGOUT1": "Vous quittez l'application ? ",
+    "LOGOUT2": "Êtes-vous sûr de vouloir vous déconnecter ",
+    "LOGOUT": "Déconnexion "
+  },
+
+  "SAVE": "Enregistrer",
+  "NEXT": "Suivant",
+  "EDITPROFILE":"Modifier le profil",
+  "FILTRER": "Filtrer",
+  "CANCEL": "Annuler",
+  "FORMEMPTY": "Veuillez vérifier le formulaire.",
+  "PERF": "Performance",
+  "CSV": "Export CSV",
+  "SCHEDULE": {
+    "TITLE": "Plannings de Médicaments",
+    "ADD": "Ajouter un Planning",
+    "EDIT": "Modifier le Planning",
+    "SCHEDULES": "Plannings",
+    "MY_SCHEDULES": "Mes Plannings de Médicaments",
+    "SELECT_PATIENT": "Sélectionnez un patient pour voir ou gérer ses plannings",
+    "DOSE": "Dose",
+    "START_DATE": "Date de début",
+    "END_DATE": "Date de fin",
+    "OPTIONAL": "optionnel",
+    "ALERT_BEFORE": "Alerte avant",
+    "DAYS": "Jours de la semaine",
+    "TIMES": "Heures de prise",
+    "ADD_TIME": "Ajouter une heure",
+    "UPCOMING_ALERTS": "Alertes à venir"
+  },
+ 
+ 
+
+  "PERIOD": {
+    "CURRENTWEEK": "Cette semaine",
+    "LASTTHREEWEEKS": "3 dernières semaines",
+    "CURRENTMONTH": "Ce mois-ci",
+    "LASTTHREEMONTHS": "3 derniers mois",
+    "LASTSIXMONTHS": "6 derniers mois",
+    "TOTALPARMONTH": "Total Par mois "
+  },
+  "CONFIRM": {
+    "LOGOUTTITLE": "Vous quittez l'application ? ",
+    "LOGOUTSUBTITLE": "Êtes-vous sûr de vouloir vous déconnecter ",
+    "LOGOUT": "Déconnexion ",
+    "CHANGESTATUT": "Êtes-vous sûr de vouloir changer le statut ?"
+  },
+  "STATE": {
+
+  },
+  "DELETEALLFILTER": "Effacer les Filtres",
+  "REF": "Référence",
+  "OTHER": "Autre",
+  "LASTFIRSTNAME": "Nom et prénom",
+  "ENABLED": "Activé",
+  "ENABLE_OR_DISABLE": "Activer / Désactiver",
+  "ON_HOLD": "En attente"
+}

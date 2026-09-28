@@ -1,0 +1,26 @@
+<div class="main-container">
+  <!-- === PANNEAU DE CHOIX (PORTAIL) === -->
+  <div class="choice-panel" id="choicePanel">
+    <h1>Bienvenue !</h1>
+    <p>
+    Ravis de vous revoir. Accédez à vos outils MedicareAI en toute confidentialité. 
+    </p>
+    <div class="choice-buttons">
+     
+      <button class="btn-choice" [class.active]="isActive('/auth/patient/register')" [routerLink]="['/auth/patient/register']" >
+        <img src="icons/shop-.svg" class="icons-blue" [class.active]="isActive('/auth/patient/register')" alt="" srcset="">
+   I'm a Patient
+      </button>
+      
+      <button class="btn-choice"  [class.active]="isActive('/auth/login')"  [routerLink]="['/auth/login']" >
+          <img src="icons/login.svg"  class="icons-blue" [class.active]="isActive('/auth/login')" alt="" srcset="">
+       Login 
+      </button>
+    </div>
+  </div>
+
+  <!-- === PANNEAU DES FORMULAIRES === -->
+  <div class="form-panel">
+      <router-outlet /> 
+  </div>
+</div>

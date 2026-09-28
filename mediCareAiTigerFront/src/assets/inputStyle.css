@@ -1,0 +1,391 @@
+.input-dest-arriv {
+  width: 215px;
+  height: 26px;
+  left: 40px;
+  gap: 0px;
+  opacity: 0px;
+}
+
+/* Supprimer les flèches pour Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Supprimer les flèches pour Firefox */
+.inputs-content {
+  justify-content: flex-end;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Supprime l'icône par défaut */
+input[date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+}
+
+input[date] {
+  position: relative;
+  background: url("/src/assets/icons/calendar.svg") no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 35px;
+  cursor: pointer;
+} 
+
+.input_style {
+  line-height: 18.15px;
+  font-size: var(--font-size-base) !important;
+  color: black !important ;
+  border-radius: 15px;
+  border: 1px solid #dfeaf2;
+  height: 50px;
+}
+.iti input.iti__tel-input {
+  font-size: var(--font-size-sm) !important;
+}
+
+/* styles input select */
+.form-select {
+  appearance: none;
+  padding-right: 30px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>')
+    no-repeat right 10px center;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 15px;
+  border: 1px solid rgba(223, 234, 242, 1);
+  padding: 10px 15px;
+  font-size: var(--font-size-base);
+  height: 50px;
+}
+
+/* 1. Couleur par défaut dans le select (le hint affiché) */
+.form-select.ng-invalid {
+  color: rgba(113, 142, 191, 1) !important ;
+}
+
+.form-select.ng-valid,
+.form-select option {
+  color: black !important ;
+}
+
+.input_style:focus {
+  color: #718ebf;
+  opacity: 1;
+}
+
+.input_style::placeholder {
+  color: #718ebf !important;
+  opacity: 1;
+}
+
+.input_style:not(:placeholder-shown) {
+  color: #718ebf;
+}
+
+.input-invoice {
+  width: 100%;
+  height: 50px;
+  padding: 2%;
+  border-radius: 15px;
+  border-width: 1px;
+  border: 1px solid var(--Secondary-Secondary300, #c4c4c4);
+}
+/* input file styles   */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  height: 50px;
+  gap: 0px;
+  border-radius: 15px;
+  border: 1px;
+  opacity: 0px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(223, 234, 242, 1);
+}
+.input-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+}
+
+.custom-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  opacity: 1;
+  padding-left: 5px;
+  border-radius: inherit;
+}
+
+.input-container-search:hover {
+  border: 0.8px solid #ccc;
+}
+
+.input-container-search input::placeholder {
+  color: #aaa;
+}
+input.no-border {
+  border: none;
+  /* Supprime la bordure */
+  outline: none;
+  /* Supprime l'effet de focus par défaut */
+  background-color: transparent;
+  /* Rendre le fond transparent, si nécessaire */
+  color: #5e5e5e;
+  /* Couleur du texte (modifiable) */
+  font-size: 22.39px;
+  /* Taille de la police (modifiable) */
+  font-weight: 400;
+  padding: 5px;
+  /* Espacement intérieur (modifiable) */
+  border-bottom: 2px solid #4e4949;
+  /* Ligne en bas lors du focus */
+  text-align: right;
+}
+
+/*autocomplete styles */
+.autocomplete-container .input-container input {
+  line-height: 18.15px;
+  font-size: 15px;
+  border-radius: 15px;
+}
+.input-container-search {
+  height: 40px;
+    border-radius: 7px !important;
+    border: 1px solid var(--border-input) ;
+    /* border: 1px solid rgb(36 34 48 / 20%) ; */
+}
+
+.autocomplete-container .input-container input::placeholder {
+  color: #718ebf !important;
+}
+/*input style support  */
+.input_style-support {
+  line-height: 18.15px;
+  font-size: 15px;
+  color: black !important ;
+  border-radius: 15px;
+  border: 1px solid rgba(223, 234, 242, 1);
+  height: 50px;
+}
+
+.input_style-support:focus {
+  color: rgba(206, 206, 206, 1);
+  opacity: 1;
+}
+
+.input_style-support::placeholder {
+  color: rgba(206, 206, 206, 1);
+  opacity: 1;
+}
+.autocomplete-container {
+  box-shadow: none !important;
+  position: relative;
+  overflow: visible;
+  height: 40px;
+  border-top-right-radius: 0;
+  padding: 0px !important;
+  border-bottom-right-radius: 0;
+}
+
+/* style input select */ 
+.ng-select.custom {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #eeeeee;
+  border-radius: 26px;
+  height: auto;
+  min-height: 40px;
+  width: 632px;
+  max-width: 100%;
+  background-color: #ffffff;
+  outline: none;
+  font-weight: 300;
+
+  padding: 0px 0px;
+  text-align: left;
+}
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+  background-color: rgba(53, 99, 240, 0.15);
+  border-radius: 26px;
+  padding: 5px 15px;
+  color: rgba(53, 99, 240, 1);
+
+  font-weight: 600;
+}
+ .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value {
+  background-color: rgba(53, 99, 240, 0.15);
+  border-radius: 5px;
+  padding: 5px 25px;
+  color: rgba(53, 99, 240, 1);
+  font-weight: 600;
+} 
+
+.ng-value-container {
+  padding-top:23px ; 
+  overflow: scroll !important;
+  min-height: 50px !important;
+  flex-wrap: nowrap !important;
+}
+
+.ng-select .ng-select-container {
+  padding-right: 30px !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+  border-radius: 15px !important;
+  border: 1px solid rgba(223, 234, 242, 1) !important;
+
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>') no-repeat right 10px center;
+}
+
+.ng-select .ng-arrow-wrapper {
+  display: none;
+}
+
+.ng-select.ng-select-multiple.ng-select-disabled>.ng-select-container .ng-value-container .ng-value {
+  background-color: rgba(53, 99, 240, 0.15);
+  color: rgba(53, 99, 240, 1);
+  border: 1px solid hsl(0, 0%, 90%);
+}
+
+ .ng-select.ng-select-single.ng-select-disabled>.ng-select-container .ng-value-container .ng-value {
+  background-color: rgba(53, 99, 240, 0.15);
+  color: rgba(53, 99, 240, 1);
+  border: 1px solid hsl(0, 0%, 90%);
+}
+.ng-select.ng-select-single
+  .ng-select-container
+  .ng-value-container
+  .ng-value
+  .ng-value-icon {
+  color: #e4626f;
+  padding-right: 5px;
+  padding-left: 5px;
+} 
+
+ .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value .ng-value-icon {
+  color: #e4626f;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.ng-select.ng-select-single
+  .ng-select-container
+  .ng-value-container
+  .ng-value
+  .ng-value-icon:hover {
+  color: #e4626f;
+  background-color: transparent !important;
+} 
+
+.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value .ng-value-icon:hover {
+  color: #e4626f;
+  background-color: transparent !important;
+} 
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon.left {
+  border-right: none !important;
+}
+
+.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value .ng-value-icon.left {
+  border-right: none !important;
+} 
+
+  .ng-select .ng-select-container .ng-value-container .ng-placeholder{
+    color: rgba(113, 142, 191, 1) !important;  }
+
+  /* Aligner le placeholder et la flèche verticalement */
+.ng-select .ng-select-container {
+  display: flex;
+  align-items: center; /* Aligner verticalement les éléments à l'intérieur du container */
+  height: 50px !important;
+   /* Ajuste la hauteur de l'input */
+}
+
+.ng-select .ng-select-container input {
+  padding-left: 10px;  /* Assure que le texte du placeholder n'entre pas en collision avec la flèche */
+  padding-right: 30px; /* Laisser de l'espace pour la flèche */
+  height: 100%;        /* Assure que l'input occupe toute la hauteur disponible */
+  line-height: 1.5;    /* Ajuste le line-height pour centrer verticalement le texte */
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container {
+  padding-top: 23px !important;
+}
+
+ /* .ng-select.ng-select-single.ng-select-container .ng-value-container {
+  padding-top: 54px !important;
+  height: 40px !important;
+}     */
+ /* .ng-select.ng-select-single .ng-select-container .ng-value-container, .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value{
+   padding-top: 23px !important;
+   padding-left: 7px !important;
+}   */
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+  top: 10px !important;
+}
+@media (max-width: 991px) and (min-width: 769px) {
+  .inputs-content-s {
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  align-content: end;
+  justify-content: end;
+}
+  .ng-select.ng-select-single .ng-select-container {
+    height: 54px !important;
+  }  
+}
+@media (max-width: 768px) { 
+   .icon-wrapper-agent {
+        left: 63%;
+  } 
+  .inputs-content-s {
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  align-content: end;
+  justify-content: end;
+} 
+  .ng-select.ng-select-multiple .ng-select-container .ng-value-container {
+    padding-top: 6px !important;
+  }
+
+  .ng-select.ng-select-single .ng-select-container .ng-value-container {
+    padding-top: 6px !important;
+  }  
+} 
+
+
+            .form-floating { margin-bottom: 20px; }
+  .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(10, 77, 184, 0.25);
+        }  
+  .form-title { font-size: 2.2rem; font-weight: 700; color: #2c2c54; margin-bottom: 10px; }
+.form-subtitle { color: #777; margin-bottom: 30px; }
+
+    .back-link {
+            text-align: center;
+            margin-top: 20px;
+            cursor: pointer;
+            color: var(--color-principal);
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        
+        .text-link {
+            color: var(--color-principal);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .text-link:hover { text-decoration: underline; }  
+ 

@@ -1,0 +1,71 @@
+<div class="modal-header">
+  <span class="ngbNavLink">
+    {{ (type === 'edit' ? 'MEDICAMENT.EDIT' : 'MEDICAMENT.ADD') | translate }}
+  </span>
+  <button type="button" class="btn-close" (click)="dismiss()"></button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="row modal-form m-1 p-4">
+
+      <!-- Name -->
+      <div class="form-group col-12 mb-3">
+        <label class="label_input">{{ 'MEDICAMENT.NAME' | translate }} <span class="text-danger">*</span></label>
+        <input
+          type="text"
+          class="form-control input_style"
+          formControlName="name"
+          [class.is-invalid]="f['name'].invalid && f['name'].touched"
+          placeholder="{{ 'MEDICAMENT.NAME_PLACEHOLDER' | translate }}"
+          maxlength="120"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="f['name'].errors?.['required']">{{ 'VALIDATION.REQUIRED' | translate }}</span>
+          <span *ngIf="f['name'].errors?.['maxlength']">{{ 'VALIDATION.MAX_120' | translate }}</span>
+        </div>
+        <small class="text-muted float-end">{{ f['name'].value?.length || 0 }}/120</small>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group col-12 mb-3">
+        <label class="label_input">{{ 'MEDICAMENT.DESCRIPTION' | translate }}</label>
+        <textarea
+          class="form-control input_style"
+          formControlName="description"
+          [class.is-invalid]="f['description'].invalid && f['description'].touched"
+          placeholder="{{ 'MEDICAMENT.DESC_PLACEHOLDER' | translate }}"
+          rows="4"
+          maxlength="500"
+        ></textarea>
+        <div class="invalid-feedback">
+          <span *ngIf="f['description'].errors?.['maxlength']">{{ 'VALIDATION.MAX_500' | translate }}</span>
+        </div>
+        <small class="text-muted float-end">{{ f['description'].value?.length || 0 }}/500</small>
+      </div>
+
+      <!-- Stock -->
+      <div class="form-group col-12 mb-3">
+        <label class="label_input">{{ 'MEDICAMENT.STOCK' | translate }} <span class="text-danger">*</span></label>
+        <input
+          type="number"
+          class="form-control input_style"
+          formControlName="stock"
+          [class.is-invalid]="f['stock'].invalid && f['stock'].touched"
+          min="0"
+          placeholder="0"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="f['stock'].errors?.['required']">{{ 'VALIDATION.REQUIRED' | translate }}</span>
+          <span *ngIf="f['stock'].errors?.['min']">{{ 'VALIDATION.MIN_0' | translate }}</span>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <app-cancel-button (cancel)="dismiss()"></app-cancel-button>
+  <app-save-button [loading]="loading" (save)="save()"></app-save-button>
+</div>

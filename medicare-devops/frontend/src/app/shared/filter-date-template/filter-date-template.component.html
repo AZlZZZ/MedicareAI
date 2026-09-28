@@ -1,0 +1,117 @@
+<div class=" ">
+  <div class="card-button-filter m-2 d-flex justify-content-around">
+    <button
+      class="btn button-filtre m-1 btn_date_filter"
+      [class.active]="selectedDateType === 'day'"
+      (click)="onDateTypeChange('day')"
+    >
+      {{ "DAY" | translate }}
+    </button>
+    <button
+      class="btn button-filtre m-1 btn_date_filter"
+      [class.active]="selectedDateType === 'week'"
+      (click)="onDateTypeChange('week')"
+    >
+      {{ "WEEK" | translate }}
+    </button>
+    <button
+      class="btn button-filtre m-1 btn_date_filter"
+      [class.active]="selectedDateType === 'month'"
+      (click)="onDateTypeChange('month')"
+    >
+      {{ "MONTH" | translate }}
+    </button>
+    @if(type=="CHART"){
+    <button
+      class="btn button-filtre m-1 btn_date_filter"
+      [class.active]="selectedDateType === 'year'"
+      (click)="onDateTypeChange('year')"
+    >
+      {{ "YEAR" | translate }}
+    </button>
+    }
+  </div>
+  @if(selectedDateType === 'month' || selectedDateType ==='year'){
+  <div class="calendar-container">
+    <div class="year-selector">
+      <div class="carousel-container d-flex m-1">
+        <svg
+          (click)="previous()"
+          class="carousel-arrow"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.0895 23.8363C17.3051 23.8363 17.5206 23.7569 17.6908 23.5867C18.0197 23.2578 18.0197 22.7132 17.6908 22.3842L10.2942 14.9877C9.74968 14.4432 9.74968 13.5583 10.2942 13.0138L17.6908 5.61722C18.0197 5.28823 18.0197 4.7437 17.6908 4.41471C17.3618 4.08572 16.8172 4.08572 16.4883 4.41471L9.0917 11.8113C8.51314 12.3898 8.18415 13.1726 8.18415 14.0007C8.18415 14.8289 8.5018 15.6116 9.0917 16.1902L16.4883 23.5867C16.6584 23.7456 16.874 23.8363 17.0895 23.8363Z"
+            fill="#3563F0"
+          />
+        </svg>
+
+        <div class="carousel-content">
+          <span *ngIf="years.length > 0">{{
+            years[currentIndex] | translate
+          }}</span>
+        </div>
+
+        <svg
+          (click)="next()"
+          class="carousel-arrow"
+          width="29"
+          height="28"
+          viewBox="0 0 29 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.9105 23.8363C10.6949 23.8363 10.4794 23.7569 10.3092 23.5867C9.98025 23.2578 9.98025 22.7132 10.3092 22.3842L17.7058 14.9877C18.2503 14.4432 18.2503 13.5583 17.7058 13.0138L10.3092 5.61722C9.98025 5.28823 9.98025 4.7437 10.3092 4.41471C10.6382 4.08572 11.1828 4.08572 11.5117 4.41471L18.9083 11.8113C19.4869 12.3898 19.8158 13.1726 19.8158 14.0007C19.8158 14.8289 19.4982 15.6116 18.9083 16.1902L11.5117 23.5867C11.3416 23.7456 11.126 23.8363 10.9105 23.8363Z"
+            fill="#3563F0"
+          />
+        </svg>
+      </div>
+    </div>
+    @if(selectedDateType === 'month'){
+    <div class="mois-container">
+      <div *ngFor="let column of monthsColumns" class="mois-column">
+        <button
+          *ngFor="let month of column"
+          class="mois-button"
+          [class.selected]="month.id === selectedMonth?.id"
+          (click)="selectMonth(month)"
+        >
+          {{ month.value | translate }}
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+  } @else if( selectedDateType === 'week'){
+  <div class="calendar-container">
+    <ngb-datepicker
+      (dateSelect)="onWeekSelect($event)"
+      [displayMonths]="1"
+      [dayTemplate]="t"
+      navigation="arrows"
+      [showWeekNumbers]="selectedDateType === 'week'"
+    >
+    </ngb-datepicker>
+  </div>
+  } 
+  @else{
+  <ngb-datepicker
+    class="custom-datepicker"
+    #datepicker
+    [displayMonths]="1"
+    navigation="arrows"
+    (dateSelect)="onDateChange($event)"
+  >
+  </ngb-datepicker>
+  }
+  <ng-template #t let-date="date" let-focused="focused">
+    <span class="custom-day" [class.selected]="isSelectedDate(date)">
+      {{ date.day }}
+    </span>
+  </ng-template>
+</div>

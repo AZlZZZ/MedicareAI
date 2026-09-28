@@ -1,0 +1,48 @@
+  <div class="paginator-container start-0 p-1">
+  
+  
+  
+      <div class="  paginator d-flex justify-content-between">
+          <div class="d-flex align-content-center gap-2 align-items-center px-2">
+              <span>{{'SHOWING'|translate}}</span>
+              <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="pageSize"
+                  (change)="changeSizePage($event)">
+                  <option value="5" selected>5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="25">25</option>
+              </select>
+          </div>
+          <p class="paginator-indicator ">
+              {{'SHOWING'|translate}} {{ pageSize * (page - 1) + 1 }} {{'TO' |translate}}
+              @if( pageSize * page + 1 <= collectionSize) { {{ pageSize * page }} } @else { {{ collectionSize }} } {{'out of' |translate}}
+                  {{ collectionSize }} {{'RECORDS'|translate}} </p>
+                 
+                      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                          [maxSize]="2" (pageChange)="changePage($event)">
+                          <ng-template ngbPaginationPrevious>
+                              <svg width="6" height="12" viewBox="0 0 6 12" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M5.46849 11.5856C5.79194 11.3269 5.84438 10.8549 5.58562 10.5315L1.96044 5.99997L5.58562 1.46849C5.84438 1.14505 5.79194 0.673077 5.46849 0.41432C5.14505 0.155562 4.67308 0.208004 4.41432 0.53145L0.414321 5.53145C0.19519 5.80536 0.19519 6.19458 0.414321 6.46849L4.41432 11.4685C4.67308 11.7919 5.14505 11.8444 5.46849 11.5856Z"
+                                      fill="#16151C" />
+                              </svg>
+  
+  
+                          </ng-template>
+  
+                          <ng-template ngbPaginationNext>
+                              <svg width="6" height="12" viewBox="0 0 6 12" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M0.531506 11.5856C0.20806 11.3269 0.155619 10.8549 0.414376 10.5315L4.03956 5.99997L0.414376 1.46849C0.155618 1.14505 0.208059 0.673077 0.531506 0.41432C0.854952 0.155562 1.32692 0.208004 1.58568 0.53145L5.58568 5.53145C5.80481 5.80536 5.80481 6.19458 5.58568 6.46849L1.58568 11.4685C1.32692 11.7919 0.854953 11.8444 0.531506 11.5856Z"
+                                      fill="#16151C" />
+                              </svg>
+  
+                          </ng-template>
+  
+                          <ng-template ngbPaginationNumber let-p>{{ p }}</ng-template>
+                      </ngb-pagination>
+                 
+      </div>
+  </div>

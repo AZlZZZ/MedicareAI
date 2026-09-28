@@ -1,0 +1,79 @@
+<div class="card_profile text-center p-3">
+  <div class="layout_profile">
+    <div class="d-flex justify-content-between flex-row-reverse">
+      <div class="d-flex gap-2">
+        @if(!type.includes('INVOICE')) {
+          @if(data?.state === 'BLOCKED') {
+            <img class="pointer" [ngbTooltip]="data.blockCause" src="assets/icons/info-circle.svg" alt="info" />
+          }
+          
+          <div class="btn-group" ngbDropdown>
+            <button type="button" class="btn status-btn" [ngStyle]="{ 'border-color': selectedColor, color: selectedColor }" ngbDropdownToggle>
+              {{ data?.state | translate }}
+              <i class="bi bi-chevron-down" [style.color]="selectedColor"></i>
+            </button>
+            <div class="dropdown-menu" ngbDropdownMenu>
+              <button ngbDropdownItem (click)="onBlockToggle()">
+                {{ (data?.state === 'BLOCKED' ? 'ACTIVED' : 'BLOCK') | translate }}
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+
+      <img src="icons/back-blue.svg" class="pointer" (click)="goBack()" alt="back" width="30" />
+    </div>
+
+    <div class="avatar-section ">
+      <div class="avatar-wrapper mx-auto">
+        @if(type === 'PARTNER' && historicValue > 0) {
+          <span class="icon-wrapper_agent top-icon badge badge-danger">{{ historicValue }}</span>
+        }
+
+        <img 
+          [class.img-profile]="true"
+          [class.partner-border]="type === 'PARTNER'"
+          [ngStyle]="type === 'PARTNER' ? {'border-color': data?.state === 'ENABLED' ? '#15B097' : '#9B9B9B'} : {}"
+          [src]="data?.profilePhoto || data?.logo_photo ? url + (data?.profilePhoto || data?.logo_photo) : 'assets/images/avatar.png'" 
+          alt="Profile" />
+      </div>
+
+      @if(type === 'PARTNER' || type === 'INVOICE_PARTNER') {
+        <span class="name-entreprise ">{{ data?.name || '-' }}</span>
+      }
+      
+      <p class="label_name">
+        {{ data?.firstName }} {{ data?.lastName }}
+        @if(rate_user !== null) {
+          <img src="icons/star-profile.svg" alt="star" />
+          <span class="label_rang">{{ rate_user }}</span>
+        }
+      </p>
+
+      @if(!type.includes('INVOICE')) {
+        <p class="copy-text" [ngbTooltip]="tooltip">
+          {{ idPrefix }}-{{ data?.id }}
+          <app-copy [prefixe]="idPrefix" [id]="data?.id"></app-copy>
+        </p>
+      }
+    </div>
+
+    <div class="contact-info border-top ">
+      <p class="mb-2">
+        <img src="icons/email-profile.svg" class="me-2" />
+        {{ data?.email || '-' }}
+      </p>
+      <p class="mb-3">
+        <img src="icons/phone.svg" class="me-2" />
+        {{ data?.phonePrefix }} {{ formatPhone(data?.phoneNumber) }}
+      </p>
+
+      @if(!type.includes('INVOICE')) {
+        <button type="button" class="btn btn-submit w-100" (click)="onEditUser()">
+          <img src="icons/edit-white.svg" class="me-2" />
+          {{ "EDITPROFILE" | translate }}
+        </button>
+      }
+    </div>
+  </div>
+</div>

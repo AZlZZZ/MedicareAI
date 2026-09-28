@@ -1,0 +1,12 @@
+<div class="custom-toast bg-white shadow-sm p-3 mb-3 d-flex align-items-center" [ngClass]="typeClass">
+    
+    <div class="color-indicator me-3">
+        <img  height="25px" width="25px" [src]="'images/'+typeIcon" alt="">
+    </div>
+
+    <div class="flex-grow-1">
+        {{ toast.message  |translate}}
+    </div>
+
+    <button type="button" class="btn-close ms-3" aria-label="Close" (click)="close()"></button>
+</div>

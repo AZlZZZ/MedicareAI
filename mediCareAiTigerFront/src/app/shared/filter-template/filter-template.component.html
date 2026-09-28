@@ -1,0 +1,235 @@
+<form [formGroup]="form">
+  <div class="d-flex flex-wrap-s justify-content-end gap-3">
+    <!-- input filter avec Liste option Filter  -->
+    <div
+      class="search-bar p-2 d-flex align-items-center input-container-search"
+      [@expandCollapse]="!hideSearch ? 'collapsed' : 'expanded'"
+    >
+      @if(hideSearch){
+      <svg
+        (click)="hideSearchButton()"
+        class="pointer"
+        [class.w-15]="hideSearch"
+        width="21"
+        height="20"
+        viewBox="0 0 21 20"
+        class="me-3"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9.87852 17.29C5.39519 17.29 1.75352 13.6484 1.75352 9.16504C1.75352 4.68171 5.39519 1.04004 9.87852 1.04004C14.3619 1.04004 18.0035 4.68171 18.0035 9.16504C18.0035 13.6484 14.3619 17.29 9.87852 17.29ZM9.87852 2.29004C6.08686 2.29004 3.00352 5.37337 3.00352 9.16504C3.00352 12.9567 6.08686 16.04 9.87852 16.04C13.6702 16.04 16.7535 12.9567 16.7535 9.16504C16.7535 5.37337 13.6702 2.29004 9.87852 2.29004Z"
+          fill="#8F8F8F"
+        />
+        <path
+          d="M17.5124 18.9917C17.4457 18.9917 17.379 18.9833 17.3207 18.975C16.929 18.925 16.2207 18.6583 15.8207 17.4667C15.6124 16.8417 15.6874 16.2167 16.029 15.7417C16.3707 15.2667 16.9457 15 17.604 15C18.454 15 19.1207 15.325 19.4207 15.9C19.7207 16.475 19.6374 17.2083 19.1624 17.9167C18.5707 18.8083 17.929 18.9917 17.5124 18.9917ZM17.0124 17.075C17.154 17.5083 17.354 17.725 17.4874 17.7417C17.6207 17.7583 17.8707 17.6 18.129 17.225C18.3707 16.8667 18.3874 16.6083 18.329 16.4917C18.2707 16.375 18.0374 16.25 17.604 16.25C17.3457 16.25 17.154 16.3333 17.0457 16.475C16.9457 16.6167 16.929 16.8333 17.0124 17.075Z"
+          fill="#8F8F8F"
+        />
+      </svg>
+      <div
+        class="align-items-center d-flex row"
+        style="transition: all 0.3s ease"
+      >
+        @if( typeSearch.value === 'ref'){
+        <input
+          type="text"
+          class="mr-sm-2"
+          formControlName="ref"
+          *ngIf="typeSearch.value === 'ref'"
+          [placeholder]="typeSearch.hint | translate"
+          (input)="onChangeInput()"
+        />
+        } @else if (typeSearch.value ==='phone'){
+        <input
+          type="text"
+          class="mr-sm-2"
+          formControlName="phone"
+          [placeholder]="typeSearch.hint | translate"
+          (input)="onChangeInput()"
+        />
+        } @else if ( typeSearch.value ==='lastName'){
+        <input
+          type="text"
+          class="mr-sm-2"
+          formControlName="lastName"
+          [placeholder]="typeSearch.hint | translate"
+          (input)="onChangeInput()"
+        />
+         } @else if (typeSearch.value ==='client') {
+
+        <input
+          type="search"
+          popupClass="content-rlt"
+          aria-label="Search"
+          class="mr-sm-2"
+          [placeholder]="typeSearch.hint | translate"
+          formControlName="client"
+          [ngbTypeahead]="searchClient"
+          (selectItem)="onSelectClient($event)"
+          [inputFormatter]="formatterUser"
+          [resultFormatter]="formatterUser"
+          [resultTemplate]="rtCategory"
+        />
+        } @if(searchTypes.length>1 ) {<select
+          class="col"
+          (change)="onChange($event)"
+        >
+          @for(item of searchTypes ; track item ; let idx = $index ){
+          <option [value]="idx">{{ item.prefix | translate }}</option>
+          }</select
+        >}
+      </div>
+      } @else {
+      <svg
+        (click)="hideSearchButton()"
+        class="pointer"
+        width="21"
+        height="20"
+        class="me-3"
+        viewBox="0 0 21 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9.87852 17.29C5.39519 17.29 1.75352 13.6484 1.75352 9.16504C1.75352 4.68171 5.39519 1.04004 9.87852 1.04004C14.3619 1.04004 18.0035 4.68171 18.0035 9.16504C18.0035 13.6484 14.3619 17.29 9.87852 17.29ZM9.87852 2.29004C6.08686 2.29004 3.00352 5.37337 3.00352 9.16504C3.00352 12.9567 6.08686 16.04 9.87852 16.04C13.6702 16.04 16.7535 12.9567 16.7535 9.16504C16.7535 5.37337 13.6702 2.29004 9.87852 2.29004Z"
+          fill="#8F8F8F"
+        />
+        <path
+          d="M17.5124 18.9917C17.4457 18.9917 17.379 18.9833 17.3207 18.975C16.929 18.925 16.2207 18.6583 15.8207 17.4667C15.6124 16.8417 15.6874 16.2167 16.029 15.7417C16.3707 15.2667 16.9457 15 17.604 15C18.454 15 19.1207 15.325 19.4207 15.9C19.7207 16.475 19.6374 17.2083 19.1624 17.9167C18.5707 18.8083 17.929 18.9917 17.5124 18.9917ZM17.0124 17.075C17.154 17.5083 17.354 17.725 17.4874 17.7417C17.6207 17.7583 17.8707 17.6 18.129 17.225C18.3707 16.8667 18.3874 16.6083 18.329 16.4917C18.2707 16.375 18.0374 16.25 17.604 16.25C17.3457 16.25 17.154 16.3333 17.0457 16.475C16.9457 16.6167 16.929 16.8333 17.0124 17.075Z"
+          fill="#8F8F8F"
+        />
+      </svg>
+      <span class="span-title"> {{ typeSearch.hint | translate }}</span>
+      }
+    </div>
+  
+    <!-- filter par status  -->
+    <div
+      class="btn-group "
+      ngbDropdown
+      role="group"
+      aria-label="Button"
+      #dropdown="ngbDropdown"
+    >
+      <button
+        type="button"
+        class="btn span-title btn-status bordre-button"
+        ngbDropdownToggle
+        [ngStyle]="{
+          'background-color': '#FFFFFF',
+          color: selectedStatus === 'STATE' ? '#8F8F8F' : 'var(--color-blue)',
+          'border-radius': '10px'
+        }"
+      >
+        <svg
+          width="21"
+          height="20"
+          viewBox="0 0 21 20"
+          fill="none"
+          class="me-3"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.1843 13.9995C9.60095 13.9995 9.01761 13.7745 8.57595 13.3329L3.14261 7.89954C2.90095 7.65788 2.90095 7.25788 3.14261 7.01621C3.38428 6.77454 3.78428 6.77454 4.02595 7.01621L9.45928 12.4495C9.85928 12.8495 10.5093 12.8495 10.9093 12.4495L16.3426 7.01621C16.5843 6.77454 16.9843 6.77454 17.2259 7.01621C17.4676 7.25788 17.4676 7.65788 17.2259 7.89954L11.7926 13.3329C11.3509 13.7745 10.7676 13.9995 10.1843 13.9995Z"
+            fill="#8F8F8F"
+          />
+        </svg>
+        {{ selectedStatus | translate }}
+      </button>
+      <div class="dropdown-menu z-100000" ngbDropdownMenu>
+        @for (item of statusListe; track item) {
+        <button
+          ngbDropdownItem
+          class="p-dropown-item  span-title"
+          (click)="changeStatus(item)"
+        >
+          {{ item | translate }}
+        </button>
+        }
+      </div>
+    </div>
+    
+  
+    <!-- Filter par date  -->
+    @if(  type==='CLIENTS') {
+    <div
+      class="btn-group"
+      ngbDropdown
+      role="group"
+      aria-label="Button group "
+      #dropdown="ngbDropdown"
+    >
+      <button
+        type="button"
+        class="btn span-title bordre-button btn-status input-auto-complete"
+        ngbDropdownToggle
+        [ngStyle]="{ color: '#000', border: 'none' }"
+        [ngStyle]="{
+          'background-color': 'transparent',
+          color: selectedperiod === 'DATE' ? '#8F8F8F' : '#3563F0'
+        }"
+      >
+        <svg
+          width="21"
+          height="20"
+          viewBox="0 0 21 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.1843 13.9995C9.60095 13.9995 9.01761 13.7745 8.57595 13.3329L3.14261 7.89954C2.90095 7.65788 2.90095 7.25788 3.14261 7.01621C3.38428 6.77454 3.78428 6.77454 4.02595 7.01621L9.45928 12.4495C9.85928 12.8495 10.5093 12.8495 10.9093 12.4495L16.3426 7.01621C16.5843 6.77454 16.9843 6.77454 17.2259 7.01621C17.4676 7.25788 17.4676 7.65788 17.2259 7.89954L11.7926 13.3329C11.3509 13.7745 10.7676 13.9995 10.1843 13.9995Z"
+            fill="#8F8F8F"
+          />
+        </svg>
+        {{ selectedperiod | translate }}
+      </button>
+      <app-filter-date-template class="z-100000"
+        (formValuesChanged)="changeFilterDate($event)"
+        ngbDropdownMenu
+      ></app-filter-date-template>
+    
+    </div>
+    }
+    <!-- button Effacer les Filters -->
+    <button type="button" (click)="restForm()" class="btn-reset-filter">
+      {{ "DELETEALLFILTER" | translate }}
+    </button>
+  </div>
+</form>
+<ng-template #rt let-result="result" let-term="term">
+  <div class="d-flex align-items-center">
+    <div>
+      <img
+        class="img"
+        [ngStyle]="{ left: 30 + 'px', top: 10 + 'px', 'z-index': 10 }"
+        [src]="
+          result?.logo_photo
+            ? url + result?.logo_photo
+            : 'assets/images/avatar.png'
+        "
+      />
+    </div>
+    <div class="ml-2" style="margin-left: 3%">
+      <p class="m-0">{{ result?.name || "-" }}</p>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #rtCategory let-result="result" let-term="term">
+  <div class="d-flex align-items-center">
+    <div>
+      <img
+        class="img"
+        [ngStyle]="{ left: 30 + 'px', top: 10 + 'px', 'z-index': 10 }"
+        [src]="
+          result?.profilePhoto
+            ? url + result?.profilePhoto
+            : 'assets/images/avatar.png'
+        "
+      />
+    </div>
+    <div class="ml-2" style="margin-left: 3%">
+      <p class="m-0">{{ result?.firstName || "-" }} {{ result?.lastName }}</p>
+    </div>
+  </div>
+</ng-template>

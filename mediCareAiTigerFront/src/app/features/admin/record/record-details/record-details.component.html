@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+    <h5 class="m-0"><i class="fa fa-history me-2 text-primary"></i>Historique des Diagnostics</h5>
+    
+    <button class="btn btn-add-diag d-flex align-items-center gap-2" (click)="openAddDiagnosticModal()">
+      <i class="fa fa-plus-circle"></i>
+      <span>Ajouter un diagnostic</span>
+    </button>
+</div>
+  <div class="timeline">
+    @for (diag of diagnostics; track diag.id) {
+      <div class="timeline-item">
+        <div class="timeline-date">{{ diag.diagnosisDate }}</div>
+        <div class="timeline-content card shadow-sm p-3" [class.severity-high]="diag.severity === 'HIGH'">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="text-primary fw-bold">{{ diag.diseaseName }}</h6>
+            <span class="badge" [ngClass]="getSeverityClass(diag.severity)">
+              {{ diag.severity }}
+            </span>
+          </div>
+          <p class="mb-1 text-muted small italic italic"><strong>Symptômes:</strong> {{ diag.symptoms }}</p>
+          <hr class="my-2">
+          <p class="mb-1"><strong>Description:</strong> {{ diag.description }}</p>
+          <div class="prescription-box mt-2 p-2 bg-light rounded border-start border-4 border-success">
+             <small class="text-success fw-bold">Prescription :</small>
+             <p class="mb-0 small">{{ diag.prescription }}</p>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="text-center text-muted">Aucun diagnostic enregistré pour ce dossier.</div>
+    }
+  </div>

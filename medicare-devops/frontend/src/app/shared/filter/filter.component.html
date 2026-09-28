@@ -1,0 +1,465 @@
+<form [formGroup]="form">
+    <div class="d-flex"  [ngStyle]="{'width': type === 'CLIENTS' || type ==='DRIVERS'   || (type =='CARS' &&  golden==='Swift' ) ? '500px' : '400px' }">
+      <div  [ngClass]="type === 'GOLDEN' || type ==='REGION' ? 'w-100' : 'w-70'" class="d-flex justify-content-around">
+  
+        <div class="form-group">
+        @if( type !='REGION'){  <button class="btn button-filtre btn-light btn-light-filtre m-1 btn_date_filter" [class.active]="selectedType === 'ref'"
+        (click)="onTypeChange('ref')">
+        @if( selectedType === 'ref') {
+          <svg
+            (click)="cleanDate()"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.3 2.09967L2.1 13.2996C1.71733 13.6823 1.08267 13.6823 0.7 13.2996C0.317333 12.9169 0.317333 12.2823 0.7 11.8996L11.9 0.699677C12.2827 0.317012 12.9173 0.317012 13.3 0.699676C13.6827 1.08234 13.6827 1.717 13.3 2.09967Z"
+              fill="#E4626F"
+            />
+            <path
+              d="M13.3 13.3003C12.9173 13.683 12.2827 13.683 11.9 13.3003L0.7 2.10039C0.317333 1.71772 0.317333 1.08306 0.7 0.700395C1.08267 0.31773 1.71733 0.31773 2.1 0.700395L13.3 11.9003C13.6827 12.283 13.6827 12.9177 13.3 13.3003Z"
+              fill="#E4626F"
+            />
+          </svg>
+          }  
+        {{'REF' | translate}}
+      </button>} 
+          @if(type=="GOLDEN"  || (type=="REGION" && entrepriseId ==1 ) || (type =="CARS" &&  golden==="Swift" )){
+          <button class="btn button-filtre btn-light btn-light-filtre m-1 btn_date_filter" [class.active]="selectedType === 'golden'"
+          (click)="onTypeChange('golden')">
+          @if( selectedType === 'golden') {
+            <svg
+              (click)="cleanDate()"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.3 2.09967L2.1 13.2996C1.71733 13.6823 1.08267 13.6823 0.7 13.2996C0.317333 12.9169 0.317333 12.2823 0.7 11.8996L11.9 0.699677C12.2827 0.317012 12.9173 0.317012 13.3 0.699676C13.6827 1.08234 13.6827 1.717 13.3 2.09967Z"
+                fill="#E4626F"
+              />
+              <path
+                d="M13.3 13.3003C12.9173 13.683 12.2827 13.683 11.9 13.3003L0.7 2.10039C0.317333 1.71772 0.317333 1.08306 0.7 0.700395C1.08267 0.31773 1.71733 0.31773 2.1 0.700395L13.3 11.9003C13.6827 12.283 13.6827 12.9177 13.3 13.3003Z"
+                fill="#E4626F"
+              />
+            </svg>
+            }  
+          {{'GOLDENDEAL' | translate}}
+        </button>
+         } 
+          @if(type==="CLIENTS" || type==="CARS"){
+            <button class="btn button-filtre btn-light btn-light-filtre m-1 btn_date_filter" [class.active]="selectedType === 'date'"
+            (click)="onTypeChange('date')">
+            @if( selectedType === 'date') {
+              <svg
+                (click)="cleanDate()"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.3 2.09967L2.1 13.2996C1.71733 13.6823 1.08267 13.6823 0.7 13.2996C0.317333 12.9169 0.317333 12.2823 0.7 11.8996L11.9 0.699677C12.2827 0.317012 12.9173 0.317012 13.3 0.699676C13.6827 1.08234 13.6827 1.717 13.3 2.09967Z"
+                  fill="#E4626F"
+                />
+                <path
+                  d="M13.3 13.3003C12.9173 13.683 12.2827 13.683 11.9 13.3003L0.7 2.10039C0.317333 1.71772 0.317333 1.08306 0.7 0.700395C1.08267 0.31773 1.71733 0.31773 2.1 0.700395L13.3 11.9003C13.6827 12.283 13.6827 12.9177 13.3 13.3003Z"
+                  fill="#E4626F"
+                />
+              </svg>
+              }  
+             {{ "DATE" | translate }}
+          </button>
+          }
+          <!-- <button class="btn btn-light btn-light-filtre m-1 btn_date_filter"
+          [class.active]="selectedType === 'phone'"
+          (click)="onTypeChange('phone')">
+            Phone
+          </button> -->
+         @if(type != 'CARS'){
+          <button class="btn button-filtre btn-light btn-light-filtre m-1 btn_date_filter" [class.active]="selectedType === 'other'"
+          (click)="onTypeChange('other')">
+          @if( selectedType === 'other') {
+            <svg
+              (click)="cleanDate()"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.3 2.09967L2.1 13.2996C1.71733 13.6823 1.08267 13.6823 0.7 13.2996C0.317333 12.9169 0.317333 12.2823 0.7 11.8996L11.9 0.699677C12.2827 0.317012 12.9173 0.317012 13.3 0.699676C13.6827 1.08234 13.6827 1.717 13.3 2.09967Z"
+                fill="#E4626F"
+              />
+              <path
+                d="M13.3 13.3003C12.9173 13.683 12.2827 13.683 11.9 13.3003L0.7 2.10039C0.317333 1.71772 0.317333 1.08306 0.7 0.700395C1.08267 0.31773 1.71733 0.31773 2.1 0.700395L13.3 11.9003C13.6827 12.283 13.6827 12.9177 13.3 13.3003Z"
+                fill="#E4626F"
+              />
+            </svg>
+            }  
+            {{ other| translate }}
+        </button>
+         } 
+          @if (type != 'GOLDEN' &&  type !='REGION' ) {
+            <button type="button" class="btn button-filtre btn-light btn-light-filtre m-1 btn_date_filter" [class.active]="selectedType === 'state'" (click)="toggleStatusButtons()">
+              @if( selectedType === 'state') {
+                <svg
+                  (click)="cleanDate()"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.3 2.09967L2.1 13.2996C1.71733 13.6823 1.08267 13.6823 0.7 13.2996C0.317333 12.9169 0.317333 12.2823 0.7 11.8996L11.9 0.699677C12.2827 0.317012 12.9173 0.317012 13.3 0.699676C13.6827 1.08234 13.6827 1.717 13.3 2.09967Z"
+                    fill="#E4626F"
+                  />
+                  <path
+                    d="M13.3 13.3003C12.9173 13.683 12.2827 13.683 11.9 13.3003L0.7 2.10039C0.317333 1.71772 0.317333 1.08306 0.7 0.700395C1.08267 0.31773 1.71733 0.31773 2.1 0.700395L13.3 11.9003C13.6827 12.283 13.6827 12.9177 13.3 13.3003Z"
+                    fill="#E4626F"
+                  />
+                </svg>
+                } 
+              {{'STATE' |translate}}
+            </button>
+          }
+          
+  
+  
+          <!-- <div class="input-container p-2">
+                <svg
+                  width="21"
+                  height="20"
+                  viewBox="0 0 21 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.17676 17.2903C4.69342 17.2903 1.05176 13.6486 1.05176 9.16525C1.05176 4.68192 4.69342 1.04025 9.17676 1.04025C13.6601 1.04025 17.3018 4.68192 17.3018 9.16525C17.3018 13.6486 13.6601 17.2903 9.17676 17.2903ZM9.17676 2.29025C5.38509 2.29025 2.30176 5.37359 2.30176 9.16525C2.30176 12.9569 5.38509 16.0403 9.17676 16.0403C12.9684 16.0403 16.0518 12.9569 16.0518 9.16525C16.0518 5.37359 12.9684 2.29025 9.17676 2.29025Z"
+                    fill="#8F8F8F"
+                  />
+                  <path
+                    d="M16.8103 18.9906C16.7437 18.9906 16.677 18.9823 16.6187 18.9739C16.227 18.9239 15.5187 18.6573 15.1187 17.4656C14.9103 16.8406 14.9853 16.2156 15.327 15.7406C15.6687 15.2656 16.2437 14.9989 16.902 14.9989C17.752 14.9989 18.4187 15.3239 18.7187 15.8989C19.0187 16.4739 18.9353 17.2073 18.4603 17.9156C17.8687 18.8073 17.227 18.9906 16.8103 18.9906ZM16.3103 17.0739C16.452 17.5073 16.652 17.7239 16.7853 17.7406C16.9187 17.7573 17.1687 17.5989 17.427 17.2239C17.6687 16.8656 17.6853 16.6073 17.627 16.4906C17.5687 16.3739 17.3353 16.2489 16.902 16.2489C16.6437 16.2489 16.452 16.3323 16.3437 16.4739C16.2437 16.6156 16.227 16.8323 16.3103 17.0739Z"
+                    fill="#8F8F8F"
+                  />
+                </svg>
+                <input
+                  type="text"
+                  class="custom-input"
+                  placeholder="(client/chauffeur)/véhicule"
+              
+                 
+                />
+              </div> -->
+          @if (type!= "AGENTS" && type!= "REGION" && type != 'GOLDEN' && type !='TRAGETS' && type!='PROMO' && type != "CARS" && type != "DRIVERS" && type != 'CLIENTS') {
+          <button class="btn button-filtre btn-light btn-light-filtre m-1 btn_date_filter" [class.active]="selectedType === 'phone'"
+            (click)="onTypeChange('phone')">
+            @if( selectedType === 'phone') {
+              <svg
+                (click)="cleanDate()"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.3 2.09967L2.1 13.2996C1.71733 13.6823 1.08267 13.6823 0.7 13.2996C0.317333 12.9169 0.317333 12.2823 0.7 11.8996L11.9 0.699677C12.2827 0.317012 12.9173 0.317012 13.3 0.699676C13.6827 1.08234 13.6827 1.717 13.3 2.09967Z"
+                  fill="#E4626F"
+                />
+                <path
+                  d="M13.3 13.3003C12.9173 13.683 12.2827 13.683 11.9 13.3003L0.7 2.10039C0.317333 1.71772 0.317333 1.08306 0.7 0.700395C1.08267 0.31773 1.71733 0.31773 2.1 0.700395L13.3 11.9003C13.6827 12.283 13.6827 12.9177 13.3 13.3003Z"
+                  fill="#E4626F"
+                />
+              </svg>
+              }   
+            Phone
+          </button>
+          @if(selectedType==='phone'){
+          <div class="input-container-search p-2">
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.17676 17.2903C4.69342 17.2903 1.05176 13.6486 1.05176 9.16525C1.05176 4.68192 4.69342 1.04025 9.17676 1.04025C13.6601 1.04025 17.3018 4.68192 17.3018 9.16525C17.3018 13.6486 13.6601 17.2903 9.17676 17.2903ZM9.17676 2.29025C5.38509 2.29025 2.30176 5.37359 2.30176 9.16525C2.30176 12.9569 5.38509 16.0403 9.17676 16.0403C12.9684 16.0403 16.0518 12.9569 16.0518 9.16525C16.0518 5.37359 12.9684 2.29025 9.17676 2.29025Z"
+                fill="#8F8F8F" />
+              <path
+                d="M16.8103 18.9906C16.7437 18.9906 16.677 18.9823 16.6187 18.9739C16.227 18.9239 15.5187 18.6573 15.1187 17.4656C14.9103 16.8406 14.9853 16.2156 15.327 15.7406C15.6687 15.2656 16.2437 14.9989 16.902 14.9989C17.752 14.9989 18.4187 15.3239 18.7187 15.8989C19.0187 16.4739 18.9353 17.2073 18.4603 17.9156C17.8687 18.8073 17.227 18.9906 16.8103 18.9906ZM16.3103 17.0739C16.452 17.5073 16.652 17.7239 16.7853 17.7406C16.9187 17.7573 17.1687 17.5989 17.427 17.2239C17.6687 16.8656 17.6853 16.6073 17.627 16.4906C17.5687 16.3739 17.3353 16.2489 16.902 16.2489C16.6437 16.2489 16.452 16.3323 16.3437 16.4739C16.2437 16.6156 16.227 16.8323 16.3103 17.0739Z"
+                fill="#8F8F8F" />
+            </svg>
+            <input type="text" class="custom-input" placeholder="Phone" formControlName="phone"
+              (input)="onChange('phone')" />
+          </div>
+          }
+  
+  
+          <!-- <div class="input-container p-2">
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.17676 17.2903C4.69342 17.2903 1.05176 13.6486 1.05176 9.16525C1.05176 4.68192 4.69342 1.04025 9.17676 1.04025C13.6601 1.04025 17.3018 4.68192 17.3018 9.16525C17.3018 13.6486 13.6601 17.2903 9.17676 17.2903ZM9.17676 2.29025C5.38509 2.29025 2.30176 5.37359 2.30176 9.16525C2.30176 12.9569 5.38509 16.0403 9.17676 16.0403C12.9684 16.0403 16.0518 12.9569 16.0518 9.16525C16.0518 5.37359 12.9684 2.29025 9.17676 2.29025Z"
+                fill="#8F8F8F" />
+              <path
+                d="M16.8103 18.9906C16.7437 18.9906 16.677 18.9823 16.6187 18.9739C16.227 18.9239 15.5187 18.6573 15.1187 17.4656C14.9103 16.8406 14.9853 16.2156 15.327 15.7406C15.6687 15.2656 16.2437 14.9989 16.902 14.9989C17.752 14.9989 18.4187 15.3239 18.7187 15.8989C19.0187 16.4739 18.9353 17.2073 18.4603 17.9156C17.8687 18.8073 17.227 18.9906 16.8103 18.9906ZM16.3103 17.0739C16.452 17.5073 16.652 17.7239 16.7853 17.7406C16.9187 17.7573 17.1687 17.5989 17.427 17.2239C17.6687 16.8656 17.6853 16.6073 17.627 16.4906C17.5687 16.3739 17.3353 16.2489 16.902 16.2489C16.6437 16.2489 16.452 16.3323 16.3437 16.4739C16.2437 16.6156 16.227 16.8323 16.3103 17.0739Z"
+                fill="#8F8F8F" />
+            </svg>
+            <input type="text" class="custom-input" placeholder=" firstName" formControlName="firstName"
+              (input)="onChange('firstName')" />
+          </div> -->
+          }
+          @if(selectedType ==='other' ){
+          <div class="input-container-search p-2">
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.17676 17.2903C4.69342 17.2903 1.05176 13.6486 1.05176 9.16525C1.05176 4.68192 4.69342 1.04025 9.17676 1.04025C13.6601 1.04025 17.3018 4.68192 17.3018 9.16525C17.3018 13.6486 13.6601 17.2903 9.17676 17.2903ZM9.17676 2.29025C5.38509 2.29025 2.30176 5.37359 2.30176 9.16525C2.30176 12.9569 5.38509 16.0403 9.17676 16.0403C12.9684 16.0403 16.0518 12.9569 16.0518 9.16525C16.0518 5.37359 12.9684 2.29025 9.17676 2.29025Z"
+                fill="#8F8F8F" />
+              <path
+                d="M16.8103 18.9906C16.7437 18.9906 16.677 18.9823 16.6187 18.9739C16.227 18.9239 15.5187 18.6573 15.1187 17.4656C14.9103 16.8406 14.9853 16.2156 15.327 15.7406C15.6687 15.2656 16.2437 14.9989 16.902 14.9989C17.752 14.9989 18.4187 15.3239 18.7187 15.8989C19.0187 16.4739 18.9353 17.2073 18.4603 17.9156C17.8687 18.8073 17.227 18.9906 16.8103 18.9906ZM16.3103 17.0739C16.452 17.5073 16.652 17.7239 16.7853 17.7406C16.9187 17.7573 17.1687 17.5989 17.427 17.2239C17.6687 16.8656 17.6853 16.6073 17.627 16.4906C17.5687 16.3739 17.3353 16.2489 16.902 16.2489C16.6437 16.2489 16.452 16.3323 16.3437 16.4739C16.2437 16.6156 16.227 16.8323 16.3103 17.0739Z"
+                fill="#8F8F8F" />
+            </svg>
+            <input type="text" class="custom-input " [placeholder]="placeholder | translate "
+              formControlName="lastName" (input)="onChange('lastName')" />
+          </div>
+          <!-- <div class="input-container p-2">
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.17676 17.2903C4.69342 17.2903 1.05176 13.6486 1.05176 9.16525C1.05176 4.68192 4.69342 1.04025 9.17676 1.04025C13.6601 1.04025 17.3018 4.68192 17.3018 9.16525C17.3018 13.6486 13.6601 17.2903 9.17676 17.2903ZM9.17676 2.29025C5.38509 2.29025 2.30176 5.37359 2.30176 9.16525C2.30176 12.9569 5.38509 16.0403 9.17676 16.0403C12.9684 16.0403 16.0518 12.9569 16.0518 9.16525C16.0518 5.37359 12.9684 2.29025 9.17676 2.29025Z"
+                fill="#8F8F8F" />
+              <path
+                d="M16.8103 18.9906C16.7437 18.9906 16.677 18.9823 16.6187 18.9739C16.227 18.9239 15.5187 18.6573 15.1187 17.4656C14.9103 16.8406 14.9853 16.2156 15.327 15.7406C15.6687 15.2656 16.2437 14.9989 16.902 14.9989C17.752 14.9989 18.4187 15.3239 18.7187 15.8989C19.0187 16.4739 18.9353 17.2073 18.4603 17.9156C17.8687 18.8073 17.227 18.9906 16.8103 18.9906ZM16.3103 17.0739C16.452 17.5073 16.652 17.7239 16.7853 17.7406C16.9187 17.7573 17.1687 17.5989 17.427 17.2239C17.6687 16.8656 17.6853 16.6073 17.627 16.4906C17.5687 16.3739 17.3353 16.2489 16.902 16.2489C16.6437 16.2489 16.452 16.3323 16.3437 16.4739C16.2437 16.6156 16.227 16.8323 16.3103 17.0739Z"
+                fill="#8F8F8F" />
+            </svg>
+            <input type="text" class="custom-input" placeholder="Username" formControlName="userName"
+              (input)="onChange('userName')" />
+          </div> -->
+          }
+          
+          @else if(selectedType === 'ref'&& type !='REGION'){
+          <div class="input-container-search p-2">
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.17676 17.2903C4.69342 17.2903 1.05176 13.6486 1.05176 9.16525C1.05176 4.68192 4.69342 1.04025 9.17676 1.04025C13.6601 1.04025 17.3018 4.68192 17.3018 9.16525C17.3018 13.6486 13.6601 17.2903 9.17676 17.2903ZM9.17676 2.29025C5.38509 2.29025 2.30176 5.37359 2.30176 9.16525C2.30176 12.9569 5.38509 16.0403 9.17676 16.0403C12.9684 16.0403 16.0518 12.9569 16.0518 9.16525C16.0518 5.37359 12.9684 2.29025 9.17676 2.29025Z"
+                fill="#8F8F8F" />
+              <path
+                d="M16.8103 18.9906C16.7437 18.9906 16.677 18.9823 16.6187 18.9739C16.227 18.9239 15.5187 18.6573 15.1187 17.4656C14.9103 16.8406 14.9853 16.2156 15.327 15.7406C15.6687 15.2656 16.2437 14.9989 16.902 14.9989C17.752 14.9989 18.4187 15.3239 18.7187 15.8989C19.0187 16.4739 18.9353 17.2073 18.4603 17.9156C17.8687 18.8073 17.227 18.9906 16.8103 18.9906ZM16.3103 17.0739C16.452 17.5073 16.652 17.7239 16.7853 17.7406C16.9187 17.7573 17.1687 17.5989 17.427 17.2239C17.6687 16.8656 17.6853 16.6073 17.627 16.4906C17.5687 16.3739 17.3353 16.2489 16.902 16.2489C16.6437 16.2489 16.452 16.3323 16.3437 16.4739C16.2437 16.6156 16.227 16.8323 16.3103 17.0739Z"
+                fill="#8F8F8F" />
+            </svg>
+            <input type="text" class="custom-input" formControlName="ref" placeholder="REF" (input)="onChange('ref')" />
+  
+  
+          </div>
+          }
+         
+          @else if (selectedType =="date") {
+            <div class=" ">
+              <div class="card-button-filter m-2 d-flex justify-content-around">
+                <button
+                  class="btn button-filtre btn-primary m-1 btn_date_filter"
+                  [class.active]="selectedDateType === 'day'"
+                  (click)="onDateTypeChange('day')"
+                  [ngStyle]="type != 'CHART' ? { padding: '0 !important' } : {}"
+                >
+                  {{ "DAY" | translate }}
+                </button>
+                <button
+                  class="btn button-filtre btn-primary m-1 btn_date_filter"
+                  [class.active]="selectedDateType === 'week'"
+                  (click)="onDateTypeChange('week')"
+                  [ngStyle]="type != 'CHART' ? { padding: '0 !important' } : {}"
+                >
+                  {{ "WEEK" | translate }}
+                </button>
+                <button
+                  class="btn button-filtre btn-primary m-1 btn_date_filter"
+                  [class.active]="selectedDateType === 'month'"
+                  (click)="onDateTypeChange('month')"
+                  [ngStyle]="type != 'CHART' ? { padding: '0 !important' } : {}"
+                >
+                  {{ "MONTH" | translate }}
+                </button>
+                @if(type=="CHART"){
+                <button
+                  class="btn button-filtre btn-primary m-1 btn_date_filter"
+                  [class.active]="selectedDateType === 'year'"
+                  (click)="onDateTypeChange('year')"
+                  [ngStyle]="type != 'CHART' ? { padding: '0 !important' } : {}"
+                >
+                  {{ "YEAR" | translate }}</button
+                >}
+              </div>
+              <!-- <button class="btn btn-primary m-2 btn_date_filter"   [class.active]="selectedDateType === 'year'"  (click)="onDateTypeChange('year')">Year</button> -->
+              @if(selectedDateType =='year'){
+              <div class="calendar-container">
+                <div class="carousel-container m-1">
+                  <svg
+                    (click)="previous()"
+                    class="carousel-arrow"
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.0895 23.8363C17.3051 23.8363 17.5206 23.7569 17.6908 23.5867C18.0197 23.2578 18.0197 22.7132 17.6908 22.3842L10.2942 14.9877C9.74968 14.4432 9.74968 13.5583 10.2942 13.0138L17.6908 5.61722C18.0197 5.28823 18.0197 4.7437 17.6908 4.41471C17.3618 4.08572 16.8172 4.08572 16.4883 4.41471L9.0917 11.8113C8.51314 12.3898 8.18415 13.1726 8.18415 14.0007C8.18415 14.8289 8.5018 15.6116 9.0917 16.1902L16.4883 23.5867C16.6584 23.7456 16.874 23.8363 17.0895 23.8363Z"
+                      fill="#3563F0"
+                    />
+                  </svg>
+    
+                  <div class="carousel-content">
+                    <span *ngIf="years.length > 0">{{
+                      years[currentIndex] | translate
+                    }}</span>
+                  </div>
+    
+                  <svg
+                    (click)="next()"
+                    class="carousel-arrow"
+                    width="29"
+                    height="28"
+                    viewBox="0 0 29 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.9105 23.8363C10.6949 23.8363 10.4794 23.7569 10.3092 23.5867C9.98025 23.2578 9.98025 22.7132 10.3092 22.3842L17.7058 14.9877C18.2503 14.4432 18.2503 13.5583 17.7058 13.0138L10.3092 5.61722C9.98025 5.28823 9.98025 4.7437 10.3092 4.41471C10.6382 4.08572 11.1828 4.08572 11.5117 4.41471L18.9083 11.8113C19.4869 12.3898 19.8158 13.1726 19.8158 14.0007C19.8158 14.8289 19.4982 15.6116 18.9083 16.1902L11.5117 23.5867C11.3416 23.7456 11.126 23.8363 10.9105 23.8363Z"
+                      fill="#3563F0"
+                    />
+                  </svg>
+                </div>
+                <!-- <div class="year-selector">
+                    <select
+                      id="year"
+                      class="input-container-search"
+                      (change)="selectYear($event)"
+                    >
+                      <option *ngFor="let year of years" [value]="year">
+                        {{ year }}
+                      </option>
+                    </select>
+                  </div> -->
+              </div>
+              } @else if(selectedDateType == 'month'){
+              <div class="calendar-container">
+                <div class="year-selector">
+                  <div class="carousel-container m-1">
+                    <svg
+                      (click)="previous()"
+                      class="carousel-arrow"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M17.0895 23.8363C17.3051 23.8363 17.5206 23.7569 17.6908 23.5867C18.0197 23.2578 18.0197 22.7132 17.6908 22.3842L10.2942 14.9877C9.74968 14.4432 9.74968 13.5583 10.2942 13.0138L17.6908 5.61722C18.0197 5.28823 18.0197 4.7437 17.6908 4.41471C17.3618 4.08572 16.8172 4.08572 16.4883 4.41471L9.0917 11.8113C8.51314 12.3898 8.18415 13.1726 8.18415 14.0007C8.18415 14.8289 8.5018 15.6116 9.0917 16.1902L16.4883 23.5867C16.6584 23.7456 16.874 23.8363 17.0895 23.8363Z"
+                        fill="#3563F0"
+                      />
+                    </svg>
+    
+                    <div class="carousel-content">
+                      <span *ngIf="years.length > 0">{{
+                        years[currentIndex] | translate
+                      }}</span>
+                    </div>
+    
+                    <svg
+                      (click)="next()"
+                      class="carousel-arrow"
+                      width="29"
+                      height="28"
+                      viewBox="0 0 29 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.9105 23.8363C10.6949 23.8363 10.4794 23.7569 10.3092 23.5867C9.98025 23.2578 9.98025 22.7132 10.3092 22.3842L17.7058 14.9877C18.2503 14.4432 18.2503 13.5583 17.7058 13.0138L10.3092 5.61722C9.98025 5.28823 9.98025 4.7437 10.3092 4.41471C10.6382 4.08572 11.1828 4.08572 11.5117 4.41471L18.9083 11.8113C19.4869 12.3898 19.8158 13.1726 19.8158 14.0007C19.8158 14.8289 19.4982 15.6116 18.9083 16.1902L11.5117 23.5867C11.3416 23.7456 11.126 23.8363 10.9105 23.8363Z"
+                        fill="#3563F0"
+                      />
+                    </svg>
+                  </div>
+                  <!-- <select
+                      id="year"
+                      class="input-container-search"
+                      (change)="selectYear($event)"
+                    >
+                      <option *ngFor="let year of years" [value]="year">
+                        {{ year }}
+                      </option>
+                    </select> -->
+                </div>
+                <div class="mois-container">
+                  <div *ngFor="let column of monthsColumns" class="mois-column">
+                    <button
+                      *ngFor="let month of column"
+                      class="mois-button"
+                      [class.selected]="month.id === selectedMonth?.id"
+                      (click)="selectMonth(month)"
+                    >
+                      {{ month.value  |translate}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+              } @else if( selectedDateType === 'week'){
+              <div class="calendar-container">
+                <ngb-datepicker
+                  (dateSelect)="onWeekSelect($event)"
+                  [displayMonths]="1"
+                  [dayTemplate]="t"
+                  navigation="arrows"
+                  [showWeekNumbers]="selectedDateType === 'week'"
+                >
+                </ngb-datepicker>
+              </div>
+              } @else{
+              <ngb-datepicker
+                class="custom-datepicker"
+                #datepicker
+                [displayMonths]="1"
+                navigation="arrows"
+                (dateSelect)="onDateChange($event)"
+              >
+              </ngb-datepicker>
+              }
+    
+              <ng-template #t let-date="date" let-focused="focused">
+                <span class="custom-day" [class.selected]="isSelectedDate(date)">
+                  {{ date.day }}
+                </span>
+              </ng-template>
+            </div>
+          }
+  
+  
+        </div>
+      </div>
+      @if(type != 'GOLDEN' && type !='REGION'  ){ <div class="w-30">
+       
+        @if(statusButtonsVisible){
+        <div class="form-group">
+          @for (item of list_stats; track item) {
+          <button type="button" class="btn button-filtre btn_filter_state" [ngClass]="getButtonClass(item?.value)"
+            (click)="onStatusChange(item)">
+            @if(item?.value === "ON_HOLD" && type === "DRIVERS"){
+              {{ "DRIVER."+item?.value | translate }}
+            }
+            @else {
+              {{ item?.value | translate }}
+            }
+            
+          </button>
+          }
+  
+  
+  
+  
+        </div> }
+      </div>}
+    </div>
+  </form>
